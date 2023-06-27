@@ -7,9 +7,6 @@ export default function Navbar() {
         <Logo />
       </div>
       <div>
-        <button type="button">
-                  
-        </button>
       </div>
     </aside>
   );
