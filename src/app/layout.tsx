@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -5,7 +6,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "App Faturamento",
-  description: "Aplicativo web faturamentto",
+  description: "Aplicativo web faturamento",
+  keywords: ["Faturamento", "Contas", "Boletos", "Fatura"],
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
+  openGraph: {
+    title: "App Faturamento",
+    description: "",
+    url: "/",
+    type: "website",
+    siteName: "App Faturamento",
+    locale: "pt-br",
+  },
 };
 
 export default function RootLayout({
@@ -15,7 +30,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="container">
+          <Navbar />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
