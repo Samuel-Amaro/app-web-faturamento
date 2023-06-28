@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeContextProvider } from "@/context/ThemeContext";
+import DataContextProvider from "@/context/DatasContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,10 +34,12 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={inter.className}>
         <ThemeContextProvider>
-          <div className="container">
-            <Navbar />
-            {children}
-          </div>
+          <DataContextProvider>
+            <div className="container">
+              <Navbar />
+              {children}
+            </div>
+          </DataContextProvider>
         </ThemeContextProvider>
       </body>
     </html>
