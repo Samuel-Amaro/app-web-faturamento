@@ -8,8 +8,7 @@ import {
   nextFocusable,
   setToFocus,
 } from "@/utils/utils";
-
-//TODO: criar uma prop chamada optionsSelecteds de filter que seja um string[] que mostra as options do filter escolhidas vinda de um state, para pre=definidamente dar um checked no input para quando abrir e fechar dropdown manter o state
+import useOnClickOutside from "@/hooks/useOnClickOutside";
 
 export type Option = {
   value: string;
@@ -18,21 +17,23 @@ export type Option = {
 
 type PropsDropdown = {
   options: Option[];
-  onChange: (value: string) => void;
+  onChange: (value: string, typeAction: "add" | "delete") => void;
   className?: string;
-  filtersSelecteds: string[];
 };
 
 export default function DropdownFilter({
   options,
   onChange,
   className,
-  filtersSelecteds,
 }: PropsDropdown) {
   const [menuDropdownIsOppen, setMenuDropdownIsOppen] = useState(false);
   const refBtn = useRef<HTMLButtonElement | null>(null);
   const refsOptionsDropdown = useRef<HTMLInputElement[] | null>(null);
   const refList = useRef<HTMLUListElement | null>(null);
+  const [checkedState, setCheckedState] = useState<boolean[]>(
+    new Array(options.length).fill(false)
+  );
+  const refContainerDropdown = useRef<HTMLDivElement | null>(null);
 
   function handleClickButton() {
     setMenuDropdownIsOppen(!menuDropdownIsOppen);
@@ -66,8 +67,19 @@ export default function DropdownFilter({
     }
   }
 
-  function handleChangeOptionDropdown(event: ChangeEvent<HTMLInputElement>) {
-    onChange(event.target.value);
+  function handleChangeOptionDropdown(
+    event: ChangeEvent<HTMLInputElement>,
+    position: number
+  ) {
+    const updateCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+    if (event.target.checked) {
+      onChange(event.target.value, "add");
+    } else {
+      onChange(event.target.value, "delete");
+    }
+    setCheckedState(updateCheckedState);
   }
 
   function handleKeydownCheckbox(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -86,8 +98,17 @@ export default function DropdownFilter({
     }
   }
 
+  function handleOnCloseDropdown() {
+    setMenuDropdownIsOppen(false);
+  }
+
+  useOnClickOutside({
+    ref: refContainerDropdown,
+    handle: handleOnCloseDropdown,
+  });
+
   return (
-    <div>
+    <div ref={refContainerDropdown}>
       <button
         type="button"
         title={
@@ -119,7 +140,7 @@ export default function DropdownFilter({
                 name="filter"
                 value={option.value}
                 id={option.value}
-                onChange={handleChangeOptionDropdown}
+                onChange={(e) => handleChangeOptionDropdown(e, index)}
                 ref={(option) => {
                   const refItems = getRefs(refsOptionsDropdown);
                   if (option) {
@@ -129,11 +150,7 @@ export default function DropdownFilter({
                   }
                 }}
                 onKeyDown={handleKeydownCheckbox}
-                checked={
-                  filtersSelecteds.indexOf(option.value) === -1
-                    ? undefined
-                    : true
-                }
+                checked={checkedState[index]}
               />
               <label htmlFor={option.value}>{option.label}</label>
             </li>
