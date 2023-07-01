@@ -1,18 +1,27 @@
 /**
  * esta function encontrar elementos que podem receber foco dentro de um elemento pai certificando-se de excluir qualquer coisa com tabindex=-1. Também classificamos os elementos para seguir a ordem
- * 
+ *
  * https://zellwk.com/blog/keyboard-focusable-elements/
- * 
- * @param parent 
- * @returns 
+ *
+ * @param parent
+ * @returns
  */
-export function getFocusableElements(parent?: HTMLElement | null) : HTMLElement[] {
-    if (!parent) return [];
+export function getFocusableElements(
+  parent?: HTMLElement | null
+): HTMLElement[] {
+  if (!parent) return [];
 
   return (
-    Array.from(parent.querySelectorAll("a[href], button, input, textarea, select, details,[tabindex]"))
+    Array.from(
+      parent.querySelectorAll(
+        "a[href], button, input, textarea, select, details,[tabindex]"
+      )
+    )
       .filter(
-        (el) => el.getAttribute("tabindex") !== "-1" && !el.hasAttribute("disabled") && !el.getAttribute("aria-hidden")
+        (el) =>
+          el.getAttribute("tabindex") !== "-1" &&
+          !el.hasAttribute("disabled") &&
+          !el.getAttribute("aria-hidden")
       )
       // sort tabindexes as follows: 1, 2, 3, 4, ..., 0, 0, 0
       .sort((a, b) => {
@@ -28,11 +37,11 @@ export function getFocusableElements(parent?: HTMLElement | null) : HTMLElement[
 
 /**
  * esta function percorre um determinado array de elementos que podem receber focus
- * 
+ *
  * https://blog.bitsrc.io/simple-accessible-modal-in-react-typescript-and-tailwind-3296704a985a
- * 
- * @param elements 
- * @param forward 
+ *
+ * @param elements
+ * @param forward
  */
 export function nextFocusable(elements: HTMLElement[], forward = true) {
   const currentIndex = elements.findIndex((e) => e === document.activeElement);
@@ -49,20 +58,28 @@ export function nextFocusable(elements: HTMLElement[], forward = true) {
   elements[nextIndex]?.focus();
 }
 
-export function getRefs<T extends HTMLElement>(refs: React.MutableRefObject<T[] | null>) {
+export function getRefs<T extends HTMLElement>(
+  refs: React.MutableRefObject<T[] | null>
+) {
   if (!refs.current) {
     refs.current = [];
   }
   return refs.current;
 }
 
-export function setToFocus<T extends HTMLElement>(itemId: number, refs: React.MutableRefObject<T[] | null>) {
+export function setToFocus<T extends HTMLElement>(
+  itemId: number,
+  refs: React.MutableRefObject<T[] | null>
+) {
   const refsItems = getRefs(refs);
   const refItem = refsItems[itemId];
   refItem?.focus();
 }
 
-export function setToFocusPreviousItem<T extends HTMLElement>(itemCurrent: T, refs: React.MutableRefObject<T[] | null>) {
+export function setToFocusPreviousItem<T extends HTMLElement>(
+  itemCurrent: T,
+  refs: React.MutableRefObject<T[] | null>
+) {
   const refItems = getRefs(refs);
   let itemSelected = null;
   if (itemCurrent === refItems[0]) {
@@ -74,7 +91,10 @@ export function setToFocusPreviousItem<T extends HTMLElement>(itemCurrent: T, re
   itemSelected.focus();
 }
 
-export function setFocusNextItem<T extends HTMLElement>(itemCurrent: T, refs: React.MutableRefObject<T[] | null>) {
+export function setFocusNextItem<T extends HTMLElement>(
+  itemCurrent: T,
+  refs: React.MutableRefObject<T[] | null>
+) {
   const refItems = getRefs(refs);
   let itemSelected = null;
   if (itemCurrent === refItems[refItems.length - 1]) {
@@ -84,4 +104,21 @@ export function setFocusNextItem<T extends HTMLElement>(itemCurrent: T, refs: Re
     itemSelected = refItems[index + 1];
   }
   itemSelected.focus();
+}
+
+export function formatDate(dateValue: string) {
+  const date = new Date(dateValue);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  };
+  return new Intl.DateTimeFormat("pt-BR", options).format(date);
+}
+
+export function formatNumber(n: number) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: "currency",
+    currency: "BRL",
+  }).format(n);
 }
