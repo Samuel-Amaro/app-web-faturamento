@@ -129,7 +129,7 @@ export default function DropdownFilter({
         onKeyDown={handleKeyDownButton}
         ref={refBtn}
       >
-        <span>Filter</span> <ArrowDown />
+        <span>Filtro</span> <ArrowDown />
       </button>
       {menuDropdownIsOppen && (
         <ul id="list1" aria-labelledby="buttonDrop" ref={refList}>
