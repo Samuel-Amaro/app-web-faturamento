@@ -4,8 +4,9 @@ import { useThemeContext } from "@/context/ThemeContext";
 import Moon from "../Icons/Moon";
 import Sun from "../Icons/Sun";
 import { KeyboardEvent, MouseEvent } from "react";
+import styles from "./styles.module.css";
 
-export default function Switch() {
+export default function Switch({className} : {className?: string}) {
   const themeContext = useThemeContext();
 
   function toggleStatus(
@@ -53,6 +54,7 @@ export default function Switch() {
       aria-checked={themeContext.theme === "light" ? false : true}
       onClick={handleClick}
       onKeyDown={handleKeydown}
+      className={className ? `${className} ${styles.buttonSwitch}` :  styles.buttonSwitch}
     >
       {themeContext.theme === "light" ? <Moon /> : <Sun />}
     </button>
