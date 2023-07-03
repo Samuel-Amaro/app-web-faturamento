@@ -1,0 +1,5 @@
+root = true
+
+[*] #arquivos que serão afetados pelas regras são para todos os arquivos
+indent_style = space #regra sobre indentação, aconttecer uma indentação usar caractere de espaço
+indent_size = 2 #largura da indentação, formada de 2 em 2 espaços  
