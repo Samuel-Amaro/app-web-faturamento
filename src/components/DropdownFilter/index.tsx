@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, ReactNode, useRef, useState } from "react";
 import ArrowDown from "../Icons/ArrowDown";
 import {
   getFocusableElements,
@@ -9,6 +9,8 @@ import {
   setToFocus,
 } from "@/utils/utils";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
+import useMatchMedia from "@/hooks/useMatchMedia";
+import styles from "./style.module.css";
 
 export type Option = {
   value: string;
@@ -56,6 +58,7 @@ export default function DropdownFilter({
         break;
       case "Up":
       case "ArrowUp":
+        e.preventDefault();
         setMenuDropdownIsOppen(true);
         setToFocus(
           getRefs(refsOptionsDropdown).length - 1,
@@ -93,6 +96,12 @@ export default function DropdownFilter({
         setMenuDropdownIsOppen(false);
         refBtn.current?.focus();
         break;
+      case "ArrowDown":
+      case "Down":
+      case "Up":
+      case "ArrowUp":
+        event.preventDefault();
+        break;
       default:
         break;
     }
@@ -107,8 +116,36 @@ export default function DropdownFilter({
     handle: handleOnCloseDropdown,
   });
 
+  const txtButton = useMatchMedia({
+    mobileContent: (
+      <>
+        <TextButton>Filtro</TextButton>
+        <ArrowDown
+          className={
+            menuDropdownIsOppen
+              ? `${styles.iconButton} ${styles.iconButtonTop}`
+              : `${styles.iconButton} ${styles.iconBottom}`
+          }
+        />
+      </>
+    ),
+    desktopContent: (
+      <>
+        <TextButton>Filtrar por status</TextButton>
+        <ArrowDown
+          className={
+            menuDropdownIsOppen
+              ? `${styles.iconButton} ${styles.iconButtonTop}`
+              : `${styles.iconButton} ${styles.iconButtonBottom}`
+          }
+        />
+      </>
+    ),
+    mediaQuery: "(min-width: 690px)",
+  });
+
   return (
-    <div ref={refContainerDropdown}>
+    <div ref={refContainerDropdown} className={styles.container}>
       <button
         type="button"
         title={
@@ -128,13 +165,19 @@ export default function DropdownFilter({
         onClick={handleClickButton}
         onKeyDown={handleKeyDownButton}
         ref={refBtn}
+        className={styles.button}
       >
-        <span>Filtro</span> <ArrowDown />
+        {txtButton}
       </button>
       {menuDropdownIsOppen && (
-        <ul id="list1" aria-labelledby="buttonDrop" ref={refList}>
+        <ul
+          id="list1"
+          aria-labelledby="buttonDrop"
+          ref={refList}
+          className={styles.dropdowMenu}
+        >
           {options.map((option, index) => (
-            <li key={index}>
+            <li key={index} className={styles.item}>
               <input
                 type="checkbox"
                 name="filter"
@@ -151,12 +194,19 @@ export default function DropdownFilter({
                 }}
                 onKeyDown={handleKeydownCheckbox}
                 checked={checkedState[index]}
+                className={styles.input}
               />
-              <label htmlFor={option.value}>{option.label}</label>
+              <label htmlFor={option.value} className={styles.label}>
+                {option.label}
+              </label>
             </li>
           ))}
         </ul>
       )}
     </div>
   );
+}
+
+function TextButton({ children }: { children: ReactNode }) {
+  return <span>{children}</span>;
 }
