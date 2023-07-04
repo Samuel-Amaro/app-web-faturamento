@@ -1,0 +1,105 @@
+.container {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+  gap: 12px;
+  box-sizing: border-box;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.iconButton {
+  display: block;
+}
+
+.iconButtonBottom {
+  transform: rotate(0);
+}
+
+.iconButtonTop {
+  transform: rotate(180deg);
+}
+
+.dropdowMenu {
+  list-style: none;
+  position: absolute;
+  top: 22px;
+  background-color: var(--choose04);
+  width: 192px;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px 0px var(--color-shadow);
+}
+
+.item {
+  display: flex;
+  flex: row nowrap;
+  align-items: center;
+  gap: 13px;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+}
+
+.item:not(:last-child) {
+  margin: 0 0 16px 0;
+}
+
+.input {
+  display: block;
+  box-sizing: border-box;
+  font-family: inherit;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: none;
+  background-color: var(--choose05);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.input:is(:hover, :focus) {
+  border: 1px solid var(--color01);
+}
+
+.input::before {
+  content: url(../../../public/assets/icon-check.svg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color01);
+  visibility: hidden;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  mix-blend-mode: normal;
+  border: none;
+}
+
+.input:checked::before {
+  visibility: visible;
+  border: none;
+}
+
+.input:checked {
+  border: none;
+}
+
