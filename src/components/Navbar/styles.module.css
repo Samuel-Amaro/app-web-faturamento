@@ -1,35 +1,35 @@
 .containerControls,
 .container {
-    display: flex;
+  display: flex;
 }
 
 .container {
-    background-color: var(--color12);
-    justify-content: space-between;
-    padding: 0 24px 0 0 ;
+  background-color: var(--choose01);
+  justify-content: space-between;
+  padding: 0 24px 0 0;
 }
 
 .containerLogo {
-    display: block;
-    width: 72px;
-    height: 72px;
+  display: block;
+  width: 72px;
+  height: 72px;
 }
 
-.lineDiviser{
-    display: block;
-    flex: 0 0 1px;
-    margin: 0 24px;
-    border: none;
-    height: 100%;
-    background-color: var(--color13);
+.lineDiviser {
+  display: block;
+  flex: 0 0 1px;
+  margin: 0 24px;
+  border: none;
+  height: 100%;
+  background-color: var(--color13);
 }
 
-.switch{
-    align-self: center;
+.switch {
+  align-self: center;
 }
 
-.profile{
-    display: block;
-    border-radius: 32px;
-    align-self: center;
+.profile {
+  display: block;
+  border-radius: 32px;
+  align-self: center;
 }
