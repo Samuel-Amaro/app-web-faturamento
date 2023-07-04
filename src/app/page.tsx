@@ -3,7 +3,7 @@ import ContentPageHome from "@/components/ContentPageHome";
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.container}>
       <ContentPageHome />
     </div>
   );
