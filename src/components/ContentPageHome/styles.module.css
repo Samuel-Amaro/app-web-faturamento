@@ -1,0 +1,47 @@
+.title {
+  letter-spacing: -0.75px;
+  color: var(--choose02);
+}
+
+.headerTotalInvoices {
+  display: block;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: var(--choose03);
+}
+
+.btnNew {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+  appearance: none;
+  border-radius: 24px;
+  padding: 6px 15px 6px 6px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+  border: none;
+}
+
+.btnNewText{
+  display: block;
+  color: inherit;
+  font: inherit;
+}
+
+.iconBtnNew,
+.iconWrapper {
+  display: block;
+}
+
+.iconWrapper {
+  background-color: white;
+}
