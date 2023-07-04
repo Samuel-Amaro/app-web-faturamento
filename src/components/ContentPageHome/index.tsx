@@ -9,6 +9,7 @@ import { Fatura } from "@/types/datas";
 import Link from "next/link";
 import { formatDate, formatNumber } from "@/utils/utils";
 import useMatchMedia from "@/hooks/useMatchMedia";
+import styles from "./styles.module.css";
 
 export default function ContentPageHome() {
   const datasContext = useDatasContext();
@@ -31,40 +32,43 @@ export default function ContentPageHome() {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <div aria-live="polite" aria-atomic="true">
           {useMatchMedia({
             mobileContent: (
-              <>
-                <h1>Faturas</h1>
-                <span>
-                  {datasContext.datas.length > 0
+              <TextHeader
+                textTitle="Faturas"
+                textDescriptors={
+                  datasContext.datas.length > 0
                     ? `${datasContext.datas.length} faturas`
-                    : `Sem faturas`}
-                </span>
-              </>
+                    : `Sem faturas`
+                }
+              />
             ),
             desktopContent: (
-              <>
-                <h1>Faturas</h1>
-                <span>
-                  {datasContext.datas.length > 0
+              <TextHeader
+                textTitle="Faturas"
+                textDescriptors={
+                  datasContext.datas.length > 0
                     ? `Existem ${datasContext.datas.length} faturas ${
                         filters.length > 0 ? filters.join(", ") : "totais"
                       }`
-                    : `Sem faturas`}
-                </span>
-              </>
+                    : `Sem faturas`
+                }
+              />
             ),
             mediaQuery: "(min-width: 690px)",
           })}
         </div>
         <DropdownFilter options={optionsFilter} onChange={onChange} />
-        <button type="button" title="Nova Fatura" aria-label="Nova Fatura">
-          <span>
-            <Plus />
-          </span>
-          <span>Nova</span>
+        <button
+          type="button"
+          title="Nova Fatura"
+          aria-label="Nova Fatura"
+          className={`btn1Default ${styles.btnNew}`}
+        >
+          <Plus className={styles.iconBtnNew} />
+          <span className={styles.btnNewText}>Nova</span>
         </button>
       </header>
       <main aria-live="polite" aria-atomic="true">
@@ -138,5 +142,20 @@ function NoContent() {
       <h2>Não há nada aqui</h2>
       <p>Crie uma fatura clicando no botão Nova fatura e comece</p>
     </div>
+  );
+}
+
+function TextHeader({
+  textTitle,
+  textDescriptors,
+}: {
+  textTitle: string;
+  textDescriptors: string;
+}) {
+  return (
+    <>
+      <h1 className={`headingL ${styles.title}`}>{textTitle}</h1>
+      <span className={styles.headerTotalInvoices}>{textDescriptors}</span>
+    </>
   );
 }
