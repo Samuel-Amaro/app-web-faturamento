@@ -13,11 +13,68 @@
   --color11: #141625;
   --color12: #373B53;
   --color13: #494E6E;
+  /*variaveis css de alternação de cores para os elementos*/
+  --choose01: var(--color12);
+  --choose02: var(--color08);
+  --choose03: var(--color06);
+  --choose04: white;
+  --color-shadow: rgba(72, 84, 159, 0.25);
+  --choose05: var(--color05);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: all ease-in 0.35s;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+/***HEADINGS***/
+
+.headingL {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  font-style: normal;
+}
+
+/***BUTTONS***/
+
+.btn1Default {
+  background-color: var(--color01);
+  color: white;
+}
+
+.btn1Default:is(:hover, :focus) {
+  background-color: var(--color02);
+}
+
+/****************************************/
+
+body {
+  background-color: var(--light-bg);
+}
+
+[data-theme="light"] {
+  background-color: var(--light-bg);
+}
+
+[data-theme="dark"] {
+  background-color: var(--color11);
+  --choose01: var(--color03);
+  --choose02: white;
+  --choose03: var(--color05);
+  --choose04: var(--color04);
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --choose05: var(--color03);
+}
