@@ -30,46 +30,50 @@ export default function ContentPageHome() {
     }
   }
 
+  const txtDescription = useMatchMedia({
+    mobileContent: (
+      <TextHeader
+        textTitle="Faturas"
+        textDescriptors={
+          datasContext.datas.length > 0
+            ? `${datasContext.datas.length} faturas`
+            : `Sem faturas`
+        }
+      />
+    ),
+    desktopContent: (
+      <TextHeader
+        textTitle="Faturas"
+        textDescriptors={
+          datasContext.datas.length > 0
+            ? `Existem ${datasContext.datas.length} faturas ${
+                filters.length > 0 ? filters.join(", ") : "totais"
+              }`
+            : `Sem faturas`
+        }
+      />
+    ),
+    mediaQuery: "(min-width: 690px)",
+  });
+
   return (
     <>
       <header className={styles.header}>
         <div aria-live="polite" aria-atomic="true">
-          {useMatchMedia({
-            mobileContent: (
-              <TextHeader
-                textTitle="Faturas"
-                textDescriptors={
-                  datasContext.datas.length > 0
-                    ? `${datasContext.datas.length} faturas`
-                    : `Sem faturas`
-                }
-              />
-            ),
-            desktopContent: (
-              <TextHeader
-                textTitle="Faturas"
-                textDescriptors={
-                  datasContext.datas.length > 0
-                    ? `Existem ${datasContext.datas.length} faturas ${
-                        filters.length > 0 ? filters.join(", ") : "totais"
-                      }`
-                    : `Sem faturas`
-                }
-              />
-            ),
-            mediaQuery: "(min-width: 690px)",
-          })}
+          {txtDescription}
         </div>
-        <DropdownFilter options={optionsFilter} onChange={onChange} />
-        <button
-          type="button"
-          title="Nova Fatura"
-          aria-label="Nova Fatura"
-          className={`btn1Default ${styles.btnNew}`}
-        >
-          <Plus className={styles.iconBtnNew} />
-          <span className={styles.btnNewText}>Nova</span>
-        </button>
+        <div className={styles.headerContainer}>
+          <DropdownFilter options={optionsFilter} onChange={onChange} />
+          <button
+            type="button"
+            title="Nova Fatura"
+            aria-label="Nova Fatura"
+            className={`btn1Default ${styles.btnNew}`}
+          >
+            <Plus className={styles.iconBtnNew} />
+            <span className={styles.btnNewText}>Nova</span>
+          </button>
+        </div>
       </header>
       <main aria-live="polite" aria-atomic="true">
         {datasContext.datas.length > 0 ? (
@@ -98,31 +102,52 @@ function ListInvoices({
         )
       : invoices;
   return (
-    <ul>
+    <ul className={styles.listInvoices}>
       {invoicesFiltered.map((invoice) => (
-        <li key={invoice.id}>
+        <li key={invoice.id} className={styles.item}>
           <Link
             href={`/fatura/${invoice.id}`}
             title={`Visualizar a fatura ${invoice.id}`}
             aria-label={`Visualizar a fatura ${invoice.id}`}
+            className={styles.linkCardInvoice}
           >
-            <div>
-              <p>
-                <span>#</span>
+            <div className={styles.containerA}>
+              <p className={styles.idInvoice}>
+                <span className={styles.hashId}>#</span>
                 {invoice.id}
               </p>
-              <p>{invoice.nomeCliente}</p>
+              <p className={styles.nameClient}>{invoice.nomeCliente}</p>
             </div>
-            <div>
+            <div className={styles.containerB}>
               <div>
-                <p>Até {formatDate(invoice.vencimento)}</p>
-                <p>{formatNumber(invoice.total)}</p>
-              </div>
-              <div>
-                <p>
-                  <span></span> {invoice.status}
+                <p className={styles.vencimento}>
+                  Até {formatDate(invoice.vencimento)}
                 </p>
+                <p className={styles.total}>{formatNumber(invoice.total)}</p>
               </div>
+              <p
+                className={
+                  (invoice.status === "pago" && `${styles.statusPago}`) ||
+                  (invoice.status === "pendente" &&
+                    `${styles.statusPendente}`) ||
+                  (invoice.status === "rascunho" &&
+                    `${styles.statusRascunho}`) ||
+                  `${styles.status}`
+                }
+              >
+                <span
+                  className={
+                    (invoice.status === "pago" && `${styles.ballStatusPago}`) ||
+                    (invoice.status === "pendente" &&
+                      `${styles.ballStatusPendente}`) ||
+                    (invoice.status === "rascunho" &&
+                      `${styles.ballStatusRascunho}`) ||
+                    undefined
+                  }
+                ></span>{" "}
+                {invoice.status.toLowerCase().charAt(0).toUpperCase() +
+                  invoice.status.slice(1)}
+              </p>
             </div>
           </Link>
         </li>
