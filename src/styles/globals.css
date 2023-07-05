@@ -13,6 +13,13 @@
   --color11: #141625;
   --color12: #373B53;
   --color13: #494E6E;
+  --color14: #858BB2;
+  --color15: #33D69F;
+  --color16: rgba(51, 214, 159, 0.05);
+  --color17: rgba(255, 143, 0, 0.05);
+  --color18: #FF8F00;
+  --color19: rgba(55, 59, 83, 0.05);
+  --color20: rgba(223, 227, 250, 0.05);
   /*variaveis css de alternação de cores para os elementos*/
   --choose01: var(--color12);
   --choose02: var(--color08);
@@ -20,6 +27,10 @@
   --choose04: white;
   --color-shadow: rgba(72, 84, 159, 0.25);
   --choose05: var(--color05);
+  --choose06: white;
+  --choose07: var(--color14);
+  --choose08: var(--color19);
+  --choose09: var(--color12);
 }
 
 * {
@@ -77,4 +88,8 @@ body {
   --choose04: var(--color04);
   --color-shadow: rgba(0, 0, 0, 0.25);
   --choose05: var(--color03);
+  --choose06: var(--color03);
+  --choose07: white;
+  --choose08: var(--color20);
+  --choose09: var(--color05);
 }
