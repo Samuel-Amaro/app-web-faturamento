@@ -1,0 +1,50 @@
+.statusPago,
+.statusPendente,
+.statusRascunho {
+  border-radius: 6px;
+  padding: 14px 0 11px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 8px;
+  width: 104px;
+  justify-content: center;
+}
+
+.statusPago {
+  background-color: var(--color16);
+  color: var(--color15);
+}
+
+.statusPendente {
+  background-color: var(--color17);
+  color: var(--color18);
+}
+
+.statusRascunho {
+  background-color: var(--choose08);
+  color: var(--choose09);
+}
+
+.ballStatus,
+.ballStatusPago,
+.ballStatusPendente,
+.ballStatusRascunho {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+}
+
+.ballStatusPago {
+  background-color: var(--color15);
+}
+
+.ballStatusPendente {
+  background-color: var(--color18);
+}
+
+.ballStatusRascunho {
+  background-color: var(--choose09);
+}
