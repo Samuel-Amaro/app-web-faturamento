@@ -10,6 +10,7 @@ import Link from "next/link";
 import { formatDate, formatNumber } from "@/utils/utils";
 import useMatchMedia from "@/hooks/useMatchMedia";
 import styles from "./styles.module.css";
+import Status from "../Status";
 
 export default function ContentPageHome() {
   const datasContext = useDatasContext();
@@ -125,29 +126,7 @@ function ListInvoices({
                 </p>
                 <p className={styles.total}>{formatNumber(invoice.total)}</p>
               </div>
-              <p
-                className={
-                  (invoice.status === "pago" && `${styles.statusPago}`) ||
-                  (invoice.status === "pendente" &&
-                    `${styles.statusPendente}`) ||
-                  (invoice.status === "rascunho" &&
-                    `${styles.statusRascunho}`) ||
-                  `${styles.status}`
-                }
-              >
-                <span
-                  className={
-                    (invoice.status === "pago" && `${styles.ballStatusPago}`) ||
-                    (invoice.status === "pendente" &&
-                      `${styles.ballStatusPendente}`) ||
-                    (invoice.status === "rascunho" &&
-                      `${styles.ballStatusRascunho}`) ||
-                    undefined
-                  }
-                ></span>{" "}
-                {invoice.status.toLowerCase().charAt(0).toUpperCase() +
-                  invoice.status.slice(1)}
-              </p>
+              <Status status={invoice.status} />
             </div>
           </Link>
         </li>
