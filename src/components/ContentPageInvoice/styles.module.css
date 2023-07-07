@@ -1,0 +1,202 @@
+.header,
+.section,
+.headerContainerButtons {
+  background-color: var(--choose06);
+  border-radius: 8px;
+  box-shadow: 0px 10px 10px -10px var(--color21);
+}
+
+.header {
+  padding: 24px 24px 27px 24px;
+  margin: 0 24px 16px 24px;
+}
+
+.headerText {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: var(--choose11);
+}
+
+.headerContainer {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section {
+  padding: 25px 24px 24px 24px;
+  overflow-x: auto;
+  margin: 0 24px 56px 24px;
+}
+
+.sectionId {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+  margin: 0 0 4px 0;
+}
+
+.sectionHash {
+  color: var(--color07);
+}
+
+.sectionLabelInfo {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: var(--choose12);
+}
+
+.sectionAddres {
+  line-height: 18px;
+  font-style: normal;
+}
+
+.sectionContainerHeader {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 30px;
+  justify-content: space-between;
+  margin: 0 0 31px 0;
+}
+
+.sectionValueInfo {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+}
+
+.sectionLinkEmail {
+  display: block;
+  text-decoration: none;
+}
+
+.sectionContainerBody {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 32px 60px;
+  margin: 0 0 38px 0;
+}
+
+.sectionLabelMargin {
+  margin: 0 0 13px 0;
+}
+
+.sectionValueMargin {
+  margin: 0 0 7px 0;
+}
+
+.sectionContainerDatas .containerData:not(:last-child) {
+  margin: 0 0 31px 0;
+}
+
+/*****table*****/
+.table {
+  background-color: var(--choose13);
+  border-radius: 8px;
+}
+
+.tableFooter {
+  border-radius: 0px 0px 8px 8px;
+  background-color: var(--choose14);
+  padding: 26px 24px 22px 24px;
+}
+
+.tableRowGroupHeader {
+  visibility: hidden;
+}
+
+.tableRowGroupBody {
+  padding: 25px 24px 23px 24px;
+}
+
+.tableRow {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tableRow:not(:last-child) {
+  margin: 0 0 24px 0;
+}
+
+.tableCell {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+
+.tableCellName,
+.tableCellTotal {
+  color: var(--choose02);
+}
+
+.tableCellName {
+  margin: 0 0 8px 0;
+}
+
+.tableCellQtd,
+.tableCellPreco,
+.tableDiviser {
+  color: var(--choose10);
+}
+
+.tableTotalGeralCell {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+  color: white;
+}
+
+.tableContainerFooter {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tableTotalValue {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.headerContainerButtons {
+  border-radius: 0;
+  padding: 21px 24px 22px 24px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn {
+  display: block;
+  box-sizing: border-box;
+  font-family: inherit;
+  appearance: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  cursor: pointer;
+  padding: 18px 24px 15px 24px;
+  border-radius: 24px;
+}
