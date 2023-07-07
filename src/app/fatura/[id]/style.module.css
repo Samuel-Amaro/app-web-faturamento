@@ -1,0 +1,25 @@
+.container {
+  padding: 33px 0 0 0;
+}
+
+.containerLinkVoltar {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 23px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+  margin: 0 24px 31px 24px;
+}
+
+.containerLinkVoltar:is(:hover, :focus) {
+  color: var(--choose10);
+}
+
+.containerIconLink{
+  display: block;
+  stroke: var(--color02);
+}
