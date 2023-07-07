@@ -20,6 +20,8 @@
   --color18: #FF8F00;
   --color19: rgba(55, 59, 83, 0.05);
   --color20: rgba(223, 227, 250, 0.05);
+  --color21: rgba(72, 84, 159, 0.10);
+  --color22: #F9FAFE;
   /*variaveis css de alternação de cores para os elementos*/
   --choose01: var(--color12);
   --choose02: var(--color08);
@@ -31,6 +33,12 @@
   --choose07: var(--color14);
   --choose08: var(--color19);
   --choose09: var(--color12);
+  --choose10: var(--color07);
+  --choose11: var(--color14);
+  --choose12: var(--color07);
+  --choose13: var(--color22);
+  --choose14: var(--color12);
+  --choose15: var(--color05);
 }
 
 * {
@@ -61,13 +69,33 @@ h6 {
 
 /***BUTTONS***/
 
-.btn1Default {
+.btn1Default,
+.btn2 {
   background-color: var(--color01);
   color: white;
 }
 
-.btn1Default:is(:hover, :focus) {
+.btn1Default:is(:hover, :focus),
+.btn2:is(:hover, :focus) {
   background-color: var(--color02);
+}
+
+.btn3 {
+  background-color: var(--choose13);
+  color: var(--choose12);
+}
+
+.btn3:is(:hover, :focus) {
+  background-color: var(--choose15);
+}
+
+.btn5 {
+  background-color: var(--color09);
+  color: white;
+}
+
+.btn5:is(:hover, :focus) {
+  background-color: var(--color10);
 }
 
 /****************************************/
@@ -92,4 +120,10 @@ body {
   --choose07: white;
   --choose08: var(--color20);
   --choose09: var(--color05);
+  --choose10: var(--color06);
+  --choose11: var(--color05);
+  --choose12: var(--color05);
+  --choose13: var(--color04);
+  --choose14: var(--color08);
+  --choose15: white;
 }
