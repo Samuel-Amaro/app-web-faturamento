@@ -200,3 +200,34 @@
   padding: 18px 24px 15px 24px;
   border-radius: 24px;
 }
+
+.containerNotFound {
+  min-height: 100% - 151px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.title,
+.description {
+  color: var(--choose02);
+}
+
+.title {
+  margin: 0 0 23px 0;
+}
+
+.description {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.75px;
+}

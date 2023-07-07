@@ -87,8 +87,15 @@ export default function ContentPageInvoice({
   });
 
   if (!invoiceSelected) {
-    //TODO: arruma o html aqui
-    return <h1>Fatura não encontrada</h1>;
+    return (
+      <div className={styles.containerNotFound}>
+        <h1 className={styles.title}>Fatura não encontrada</h1>
+        <p className={styles.description}>
+          Houve um erro e não podemos encontrar a fatura selecionada, por favor
+          tente mais tarde!
+        </p>
+      </div>
+    );
   }
 
   return (
