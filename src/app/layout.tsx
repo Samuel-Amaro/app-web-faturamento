@@ -5,7 +5,7 @@ import { League_Spartan } from "next/font/google";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import DataContextProvider from "@/context/DatasContext";
 
-const inter = League_Spartan({ subsets: ["latin"], weight: ["500", "700"] });
+const spartan = League_Spartan({ subsets: ["latin"], weight: ["500", "700"] });
 
 export const metadata = {
   title: "App Faturamento",
@@ -26,20 +26,20 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
+export default function RootLayout(props: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body className={spartan.className}>
         <ThemeContextProvider>
           <DataContextProvider>
             <div className="container">
               <Navbar />
-              {children}
+              {props.children}
             </div>
+            {props.modal}
           </DataContextProvider>
         </ThemeContextProvider>
       </body>
