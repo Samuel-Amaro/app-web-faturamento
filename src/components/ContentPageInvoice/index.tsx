@@ -20,14 +20,15 @@ export default function ContentPageInvoice({
 
   const buttons = (
     <div className={styles.headerContainerButtons}>
-      <button
-        type="button"
+      <Link
+        href={`/editar/${idInvoice}`}
+        rel="next"
         title="Editar Fatura"
         aria-label="Editar Fatura"
         className={`btn3 ${styles.btn}`}
       >
         Editar
-      </button>
+      </Link>
       <button
         type="button"
         title="Excluir Fatura"
@@ -36,14 +37,16 @@ export default function ContentPageInvoice({
       >
         Excluir
       </button>
-      <button
-        type="button"
-        title="Marcar fatura como paga"
-        aria-label="Marcar fatura como paga"
-        className={`btn2 ${styles.btn}`}
-      >
-        Marcar como pago
-      </button>
+      {invoiceSelected?.status !== "pago" && (
+        <button
+          type="button"
+          title="Marcar fatura como paga"
+          aria-label="Marcar fatura como paga"
+          className={`btn2 ${styles.btn}`}
+        >
+          Marcar como pago
+        </button>
+      )}
     </div>
   );
 
