@@ -20,15 +20,16 @@
   gap: 8px;
   box-sizing: border-box;
   font-family: inherit;
-  appearance: none;
+  /*appearance: none;*/
   border-radius: 24px;
   padding: 6px 15px 6px 6px;
   font-size: 15px;
   font-weight: 700;
   line-height: 15px;
   letter-spacing: -0.25px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   border: none;
+  text-decoration: none;
 }
 
 .btnNewText {

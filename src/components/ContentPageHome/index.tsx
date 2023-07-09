@@ -65,15 +65,16 @@ export default function ContentPageHome() {
         </div>
         <div className={styles.headerContainer}>
           <DropdownFilter options={optionsFilter} onChange={onChange} />
-          <button
-            type="button"
+          <Link
+            href={"/criar"}
+            rel="next"
             title="Nova Fatura"
             aria-label="Nova Fatura"
             className={`btn1Default ${styles.btnNew}`}
           >
             <Plus className={styles.iconBtnNew} />
             <span className={styles.btnNewText}>Nova</span>
-          </button>
+          </Link>
         </div>
       </header>
       <main aria-live="polite" aria-atomic="true">
