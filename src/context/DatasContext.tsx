@@ -2,10 +2,21 @@
 
 import { DataContextType, Fatura } from "@/types/datas";
 import { getLocalStorage, setLocalStorage } from "@/utils/localStorage";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useState,
+} from "react";
 import datasJSON from "../data.json";
+import { ActionTypeDatasReducer, datasReducer } from "@/reducers/datasReducer";
 
 const DataContext = React.createContext<DataContextType | null>(null);
+
+const DataDispatchContext =
+  createContext<React.Dispatch<ActionTypeDatasReducer> | null>(null);
 
 export default function DataContextProvider({
   children,
@@ -14,7 +25,9 @@ export default function DataContextProvider({
 }) {
   const datasLocalStorage = getLocalStorage<Fatura[]>("datas", datasJSON);
 
-  const [datas, setDatas] = useState(datasLocalStorage);
+  //const [datas, setDatas] = useState(datasLocalStorage);
+
+  const [datas, dispatch] = useReducer(datasReducer, datasLocalStorage);
 
   useEffect(() => {
     setLocalStorage("datas", datas);
@@ -27,8 +40,14 @@ export default function DataContextProvider({
     [datas]
   );
 
+  const contextValueDispatch = useMemo(() => dispatch, [dispatch]);
+
   return (
-    <DataContext.Provider value={contextValue}>{children}</DataContext.Provider>
+    <DataContext.Provider value={contextValue}>
+      <DataDispatchContext.Provider value={contextValueDispatch}>
+        {children}
+      </DataDispatchContext.Provider>
+    </DataContext.Provider>
   );
 }
 
@@ -40,4 +59,14 @@ export function useDatasContext() {
   }
 
   return dataContext;
+}
+
+export function useDatasDispatch() {
+  const dispacthContext = useContext(DataDispatchContext);
+  if (!dispacthContext) {
+    throw Error(
+      "Houve um erro ao usar o dispatch function reducer datas no contexto"
+    );
+  }
+  return dispacthContext;
 }
