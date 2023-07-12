@@ -112,6 +112,7 @@ export function formatDate(dateValue: string) {
     year: "numeric",
     month: "short",
     day: "2-digit",
+    timeZone: "UTC"
   };
   return new Intl.DateTimeFormat("pt-BR", options).format(date);
 }
