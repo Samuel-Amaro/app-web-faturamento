@@ -7,6 +7,10 @@ import { Fatura, Item } from "@/types/datas";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
+import { customAlphabet } from "nanoid";
+import { useDatasDispatch } from "@/context/DatasContext";
+
+//TODO: add styles
 
 enum PaymentTerms {
   net1Day = 1,
@@ -26,7 +30,7 @@ type Inputs = {
   billToCity: string;
   billToPostCode: string;
   billToCountry: string;
-  invoiceDate: string /*or Date*/;
+  invoiceDate: Date /*string*/;
   paymentTerms: number;
   projectDescription: string;
   itemList: Item[];
@@ -35,6 +39,7 @@ type Inputs = {
 export default function ModalCreate() {
   const router = useRouter();
   const [activatedButton, setActivatedButton] = useState("");
+  const dispatchDatasContext = useDatasDispatch();
   const {
     register,
     handleSubmit,
@@ -56,9 +61,11 @@ export default function ModalCreate() {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const invDate = new Date(data.invoiceDate);
     invDate.setDate(invDate.getDate() + data.paymentTerms);
+    const nanoidLetters = customAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 2);
+    const nanoidNumbers = customAlphabet("0123456789", 4);
     const newInvoice: Fatura = {
-      id: "", //TODO: usar algo para definir id
-      criadoEm: data.invoiceDate,
+      id: `${nanoidLetters()}${nanoidNumbers()}`,
+      criadoEm: data.invoiceDate.toISOString(),
       vencimento: invDate.toISOString(),
       descricao: data.projectDescription,
       termosPagamento: data.paymentTerms,
@@ -80,13 +87,17 @@ export default function ModalCreate() {
       items: data.itemList,
       total: data.itemList.reduce((a, c) => a + c.total, 0),
     };
-    console.log(newInvoice);
+    dispatchDatasContext({
+      type: "save_new_invoice",
+      invoice: newInvoice,
+    });
+    /*console.log(newInvoice);
     console.log(data);
     if (activatedButton === "btnSaveAndSend") {
       console.log("Botão enviar e salvar");
     } else if (activatedButton === "btnSaveAsDraft") {
       console.log("Botão salvar como rascunho");
-    }
+    }*/
   };
 
   function handleBtnAddNewItemList() {
@@ -391,6 +402,7 @@ export default function ModalCreate() {
                     value: activatedButton === "btnSaveAndSend",
                     message: "Não pode estar vazio",
                   },
+                  valueAsDate: true,
                 })}
               />
             </div>
