@@ -1,0 +1,205 @@
+.formFieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 0 41px 0;
+}
+
+.formSubtitle {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--color01);
+  margin: 0 0 24px 0;
+}
+
+.formLabel {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: var(--choose10);
+}
+
+.containerALabels {
+  margin: 0 0 9px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formLabelError{
+  color: var(--color09);
+}
+
+.formInput,
+.formSelect {
+  display: block;
+  appearance: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid var(--choose17);
+  background-color: var(--choose06);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--choose02);
+  padding: 15.5px 20px 12.5px 20px;
+  width: 100%;
+}
+
+.formInput:is(:hover, :focus),
+.formSelect:is(:hover, :focus) {
+  outline: none;
+  border-color: var(--choose18);
+}
+
+.formInputError {
+  border-color: var(--color09);
+}
+
+.formInputError:is(:hover, :focus) {
+  outline: none;
+  border-color: var(--color09);
+}
+
+.formSelect {
+  appearance: auto;
+}
+
+.formGroup {
+  margin: 0 0 25px 0;
+}
+
+.formGroupContainer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 25px 23px;
+  align-items: flex-start;
+}
+
+.formGroupContainerA,
+.formGroupContainerB {
+  flex: 0 0 152px;
+}
+
+.formGroupContainerC {
+  flex: 0 0 100%;
+}
+
+.formGroupContainer2 {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 25px 24px;
+  margin: 0 0 25px 0;
+}
+
+.formGroupContainer2A,
+.formGroupContainer2B {
+  flex: 0 0 100%;
+}
+
+.formSubtitleVariant {
+  display: block;
+  color: var(--color24);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.375px;
+  margin: 0 0 22px 0;
+}
+
+.formFieldsetMargin {
+  margin: 28px 0 0 0;
+}
+
+.formInputReadonly {
+  background-color: transparent;
+  border: none;
+  padding: 15.5px 0 12.5px 0;
+  color: var(--color06);
+}
+
+.formBtnDelete {
+  display: block;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+.formBtnDeleteIcon {
+  fill: var(--color06);
+}
+
+.formBtnDelete:is(:hover, :focus) .formBtnDeleteIcon {
+  fill: var(--color09);
+}
+
+.formContainerFlex {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.formItemListContainerName {
+  margin: 0 0 25px 0;
+}
+
+.formItemList:not(:last-child),
+.formContainerItemList {
+  margin: 0 0 49px 0;
+}
+
+.formContainerFlexQtd {
+  flex: 0 0 64px;
+}
+
+.formContainerFlexPreco {
+  flex: 0 0 100px;
+}
+
+.formContainerFlexTotal {
+  flex: 0 0 56px;
+}
+
+.formBtnAddNewItem {
+  display: block;
+  box-sizing: border-box;
+  font-family: inherit;
+  appearance: none;
+  border: none;
+  padding: 18px 0 15px 0;
+  border-radius: 24px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.formContainerWarnings {
+  margin: 24px 0 24px 0;
+}
+
+.formWarning {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: -0.208px;
+  color: var(--color09);
+}
+
+.labelsErrors {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: -0.208px;
+  color: var(--color09);
+}
