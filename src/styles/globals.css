@@ -22,6 +22,8 @@
   --color20: rgba(223, 227, 250, 0.05);
   --color21: rgba(72, 84, 159, 0.10);
   --color22: #F9FAFE;
+  --color23: rgba(0, 0, 0, 0.049);
+  --color24: #777F98;
   /*variaveis css de alternação de cores para os elementos*/
   --choose01: var(--color12);
   --choose02: var(--color08);
@@ -39,6 +41,10 @@
   --choose13: var(--color22);
   --choose14: var(--color12);
   --choose15: var(--color05);
+  --choose16: white;
+  --choose17: var(--color05);
+  --choose18: var(--color02);
+  --choose19: var(--color08);
 }
 
 * {
@@ -87,6 +93,16 @@ h6 {
 
 .btn3:is(:hover, :focus) {
   background-color: var(--choose15);
+  color: var(--color07);
+}
+
+.btn4{
+  background-color: var(--color12);
+  color: var(--choose03);
+}
+
+.btn4:is(:hover, :focus){
+  background-color: var(--choose19);
 }
 
 .btn5 {
@@ -99,6 +115,9 @@ h6 {
 }
 
 /****************************************/
+.has-dialog {
+  overflow: hidden;
+}
 
 body {
   background-color: var(--light-bg);
@@ -126,4 +145,8 @@ body {
   --choose13: var(--color04);
   --choose14: var(--color08);
   --choose15: white;
+  --choose16: var(--color11);
+  --choose17: var(--color04);
+  --choose18: var(--color04);
+  --choose19: var(--color03);
 }
