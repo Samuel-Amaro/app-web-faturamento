@@ -8,7 +8,6 @@ import React, {
   useEffect,
   useMemo,
   useReducer,
-  useState,
 } from "react";
 import datasJSON from "../data.json";
 import { ActionTypeDatasReducer, datasReducer } from "@/reducers/datasReducer";
