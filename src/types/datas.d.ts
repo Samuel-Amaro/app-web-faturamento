@@ -30,3 +30,27 @@ export type Fatura = {
 export type DataContextType = {
   datas: Fatura[];
 };
+
+export type Inputs = {
+  billFromStreetAddress: string;
+  billFromCity: string;
+  billFromPostCode: string;
+  billFromCountry: string;
+  billToClientName: string;
+  billToClientEmail: string;
+  billToStreetAddress: string;
+  billToCity: string;
+  billToPostCode: string;
+  billToCountry: string;
+  invoiceDate: string;
+  paymentTerms: number;
+  projectDescription: string;
+  itemList: Item[];
+};
+
+type ActivatedButtonsForm =
+  | "btnSaveAndSendCreateForm"
+  | "btnSaveAsDraftCreateForm"
+  | "btnSaveChangesEditForm"
+  | "btnCancelEditForm"
+  | "";
