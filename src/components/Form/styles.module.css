@@ -31,7 +31,7 @@
   align-items: center;
 }
 
-.formLabelError{
+.formLabelError {
   color: var(--color09);
 }
 
@@ -52,6 +52,17 @@
   color: var(--choose02);
   padding: 15.5px 20px 12.5px 20px;
   width: 100%;
+}
+
+.formInput[type="number"]::-webkit-outer-spin-button,
+.formInput[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.formInput[type="number"] {
+  -moz-appearance: textfield;
+  appearance: none;
 }
 
 .formInput:is(:hover, :focus),
