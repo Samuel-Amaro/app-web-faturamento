@@ -1,6 +1,7 @@
 .dialog {
   border: none;
   min-height: calc(100vh - 72px);
+  max-width: 616px;
   top: 72px;
   background-color: var(--choose16);
   border-radius: 0px 20px 20px 0px;
