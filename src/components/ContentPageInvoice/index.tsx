@@ -265,10 +265,12 @@ function TableItems({ items }: { items: Item[] }) {
   const tableDesktop = (
     <table>
       <thead>
-        <th>Nome Item</th>
-        <th>QTD</th>
-        <th>Preço</th>
-        <th>Total</th>
+        <tr>
+          <th>Nome Item</th>
+          <th>QTD</th>
+          <th>Preço</th>
+          <th>Total</th>
+        </tr>
       </thead>
       <tbody>
         {items.map((item, index) => (
