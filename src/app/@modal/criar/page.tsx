@@ -56,13 +56,6 @@ export default function ModalCreate() {
       type: "save_new_invoice",
       invoice: newInvoice,
     });
-    console.log(newInvoice);
-    /*console.log(data);
-    if (activatedButton === "btnSaveAndSend") {
-      console.log("Botão enviar e salvar");
-    } else if (activatedButton === "btnSaveAsDraft") {
-      console.log("Botão salvar como rascunho");
-    }*/
   };
 
   return (
