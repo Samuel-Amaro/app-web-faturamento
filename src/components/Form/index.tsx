@@ -11,6 +11,7 @@ import {
 import styles from "./styles.module.css";
 import Delete from "../Icons/Delete";
 import useMatchMedia from "@/hooks/useMatchMedia";
+import { useEffect } from "react";
 
 interface FormProps {
   initialValues?: Fatura;
@@ -67,13 +68,24 @@ export default function Form({
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful},
     setValue,
     getValues,
+    reset,
   } = useForm<Inputs>({ defaultValues: getInitialValuesMaped(initialValues) });
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} id={idForm} className={className}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      id={idForm}
+      className={className}
+    >
       <FormGroupBillFrom
         errors={errors}
         activatedButton={activatedButton}
@@ -1111,7 +1123,9 @@ function FormGroupList({
                   aria-labelledby="totalItem"
                   readOnly={true}
                   className={`${styles.formInput} ${styles.formInputReadonly}`}
-                  {...register(`itemList.${index}.total`)}
+                  {...register(`itemList.${index}.total`, {
+                    valueAsNumber: true,
+                  })}
                 />
                 <button
                   type="button"
