@@ -8,6 +8,10 @@ export type ActionTypeDatasReducer =
   | {
       type: "changed";
       invoice: Fatura;
+    }
+  | {
+      type: "markAsPaid";
+      idInvoice: string;
     };
 
 export function datasReducer(draft: Fatura[], action: ActionTypeDatasReducer) {
@@ -19,6 +23,17 @@ export function datasReducer(draft: Fatura[], action: ActionTypeDatasReducer) {
       return draft.map((invoice) => {
         if (invoice.id === action.invoice.id) {
           return action.invoice;
+        }
+        return invoice;
+      });
+    }
+    case "markAsPaid": {
+      return draft.map((invoice) => {
+        if (invoice.id === action.idInvoice) {
+          return {
+            ...invoice,
+            status: "pago",
+          };
         }
         return invoice;
       });
