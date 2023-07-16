@@ -1,6 +1,6 @@
 "use client";
 
-import { useDatasContext } from "@/context/DatasContext";
+import { useDatasContext, useDatasDispatch } from "@/context/DatasContext";
 import useMatchMedia from "@/hooks/useMatchMedia";
 import { Item } from "@/types/datas";
 import { formatDate, formatNumber } from "@/utils/utils";
@@ -17,6 +17,29 @@ export default function ContentPageInvoice({
   const invoiceSelected = dataContext.datas.find(
     (invoice) => invoice.id === idInvoice
   );
+  const dispatchDatasContext = useDatasDispatch();
+
+  function handleClickBtnMarcarComoPago() {
+    if (invoiceSelected) {
+      dispatchDatasContext({
+        type: "markAsPaid",
+        idInvoice: invoiceSelected.id,
+      });
+    }
+  }
+
+  function handleKeydownBtnMarcarComoPago(
+    event: React.KeyboardEvent<HTMLButtonElement>
+  ) {
+    if (event.key === "Enter" || event.key === " ") {
+      if (invoiceSelected) {
+        dispatchDatasContext({
+          type: "markAsPaid",
+          idInvoice: invoiceSelected.id,
+        });
+      }
+    }
+  }
 
   const buttons = (
     <div className={styles.headerContainerButtons}>
@@ -43,6 +66,8 @@ export default function ContentPageInvoice({
           title="Marcar fatura como paga"
           aria-label="Marcar fatura como paga"
           className={`btn2 ${styles.btn}`}
+          onClick={handleClickBtnMarcarComoPago}
+          onKeyDown={handleKeydownBtnMarcarComoPago}
         >
           Marcar como pago
         </button>
