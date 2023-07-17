@@ -11,6 +11,7 @@ import { formatDate, formatNumber } from "@/utils/utils";
 import useMatchMedia from "@/hooks/useMatchMedia";
 import styles from "./styles.module.css";
 import Status from "../Status";
+import ArrowRight from "../Icons/ArrowRight";
 
 export default function ContentPageHome() {
   const datasContext = useDatasContext();
@@ -129,6 +130,7 @@ function ListInvoices({
               </div>
               <Status status={invoice.status} />
             </div>
+            <ArrowRight className={styles.iconLinkInvoice} />
           </Link>
         </li>
       ))}
