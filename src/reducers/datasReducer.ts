@@ -12,6 +12,10 @@ export type ActionTypeDatasReducer =
   | {
       type: "markAsPaid";
       idInvoice: string;
+    }
+  | {
+      type: "delete";
+      idInvoice: string;
     };
 
 export function datasReducer(draft: Fatura[], action: ActionTypeDatasReducer) {
@@ -37,6 +41,9 @@ export function datasReducer(draft: Fatura[], action: ActionTypeDatasReducer) {
         }
         return invoice;
       });
+    }
+    case "delete": {
+      return draft.filter((invoice) => invoice.id !== action.idInvoice);
     }
     default: {
       throw Error("Ação desconhecida Reducer Datas");
