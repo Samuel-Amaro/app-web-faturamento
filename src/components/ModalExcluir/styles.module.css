@@ -1,0 +1,58 @@
+.modalExcluir {
+  min-height: auto;
+  max-width: 327px;
+  border-radius: 8px;
+  height: min-content;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  inset-block-start: 0px;
+  inset-block-end: 0px;
+  padding: 34px 32px 32px 32px;
+  margin: auto;
+}
+
+.modalExcluir::backdrop {
+  min-height: 100vh;
+  top: 0;
+}
+
+.title {
+  color: var(--choose02);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px 0;
+}
+
+.description {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.1px;
+  margin: 0 0 22px 0;
+  color: var(--color06);
+}
+
+.containerButtons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: block;
+  appearance: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  padding: 18px 24px 15px 24px;
+  border-radius: 24px;
+  cursor: pointer;
+}
