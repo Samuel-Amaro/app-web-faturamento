@@ -16,8 +16,71 @@ export default function ModalCreate() {
   const router = useRouter();
   const [activatedButton, setActivatedButton] =
     useState<ActivatedButtonsForm>("");
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const dispatchDatasContext = useDatasDispatch();
   const themeContext = useThemeContext();
+
+  function handleOpenModal() {
+    setIsModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
+  function handleClickBtnVoltar() {
+    handleCloseModal();
+    router.back();
+  }
+
+  function handleKeydownBtnVoltar(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (e.key === "Enter" || e.key === "") {
+      handleCloseModal();
+      router.back();
+    }
+  }
+
+  function handleClickBtnDescartar() {
+    handleCloseModal();
+    router.back();
+  }
+
+  function handleKeydownBtnDescartar(
+    e: React.KeyboardEvent<HTMLButtonElement>
+  ) {
+    if (e.key === "Enter" || e.key === "") {
+      handleCloseModal();
+      router.back();
+    }
+  }
+
+  function handleClickBtnSalvarRascunho() {
+    setActivatedButton("btnSaveAsDraftCreateForm");
+    handleCloseModal();
+    router.back();
+  }
+
+  function handleKeydownBtnSalvarRascunho(
+    e: React.KeyboardEvent<HTMLButtonElement>
+  ) {
+    if (e.key === "Enter" || e.key === "") {
+      setActivatedButton("btnSaveAsDraftCreateForm");
+      handleCloseModal();
+      router.back();
+    }
+  }
+
+  function handleClickBtnSalvarEnviar() {
+    setActivatedButton("btnSaveAndSendCreateForm");
+  }
+
+  function handleKeydownBtnSalvarEnviar(
+    e: React.KeyboardEvent<HTMLButtonElement>
+  ) {
+    if (e.key === "Enter" || e.key === "") {
+      setActivatedButton("btnSaveAndSendCreateForm");
+    }
+  }
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const invDate = data.invoiceDate ? new Date(data.invoiceDate) : new Date();
@@ -56,22 +119,24 @@ export default function ModalCreate() {
       type: "save_new_invoice",
       invoice: newInvoice,
     });
+    handleCloseModal();
+    router.back();
   };
 
   return (
-    <Modal className={styles.modalCreate}>
+    <Modal
+      isOpen={isModalOpen}
+      onClose={handleCloseModal}
+      className={styles.modalCreate}
+    >
       <header className={styles.modalCreateHeader}>
         <button
           type="button"
           title="Voltar"
           aria-label="Voltar"
           className={styles.modalCreateBtnVoltar}
-          onClick={() => router.back()}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === "") {
-              router.back();
-            }
-          }}
+          onClick={handleClickBtnVoltar}
+          onKeyDown={handleKeydownBtnVoltar}
         >
           <ArrowLeft className={styles.modalCreateIconBtnVoltar} />
           <span>Voltar</span>
@@ -93,12 +158,8 @@ export default function ModalCreate() {
             type="button"
             aria-label="Descartar Fatura"
             title="Descartar Fatura"
-            onClick={() => router.back()}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === "") {
-                router.back();
-              }
-            }}
+            onClick={handleClickBtnDescartar}
+            onKeyDown={handleKeydownBtnDescartar}
             className={`btn3 ${styles.containerButtonsBtn}`}
           >
             Descartar
@@ -108,12 +169,8 @@ export default function ModalCreate() {
             form="formCreate"
             aria-label="Salvar como rascunho"
             title="Salvar como rascunho"
-            onClick={() => setActivatedButton("btnSaveAsDraftCreateForm")}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === "") {
-                setActivatedButton("btnSaveAsDraftCreateForm");
-              }
-            }}
+            onClick={handleClickBtnSalvarRascunho}
+            onKeyDown={handleKeydownBtnSalvarRascunho}
             className={`btn4 ${styles.containerButtonsBtn}`}
           >
             Salvar como rascunho
@@ -123,12 +180,8 @@ export default function ModalCreate() {
             form="formCreate"
             aria-label="Salvar e enviar"
             title="Salvar e enviar"
-            onClick={() => setActivatedButton("btnSaveAndSendCreateForm")}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === "") {
-                setActivatedButton("btnSaveAndSendCreateForm");
-              }
-            }}
+            onClick={handleClickBtnSalvarEnviar}
+            onKeyDown={handleKeydownBtnSalvarEnviar}
             className={`btn1Default ${styles.containerButtonsBtn}`}
           >
             Salvar & Enviar
