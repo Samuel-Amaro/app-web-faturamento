@@ -1,9 +1,9 @@
-import ModalExcluir from "@/components/ModalExcluir";
+import ModalExcluir from "@/components/ModalDelete";
 
 type Props = {
   params: { id: string };
 };
 
 export default function Page({ params }: Props) {
-  return <ModalExcluir id={params.id} />
+  return <ModalExcluir id={params.id} />;
 }
