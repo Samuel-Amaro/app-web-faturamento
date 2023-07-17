@@ -52,14 +52,16 @@ export default function ContentPageInvoice({
       >
         Editar
       </Link>
-      <button
-        type="button"
+      <Link
+        /*type="button"*/
         title="Excluir Fatura"
         aria-label="Excluir Fatura"
         className={`btn5 ${styles.btn}`}
+        href={`/excluir/${idInvoice}`}
+        rel="next"
       >
         Excluir
-      </button>
+      </Link>
       {invoiceSelected?.status !== "pago" && (
         <button
           type="button"
