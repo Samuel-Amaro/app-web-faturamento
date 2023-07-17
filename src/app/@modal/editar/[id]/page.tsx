@@ -19,10 +19,55 @@ export default function ModalEditar({ params }: Props) {
   const router = useRouter();
   const [activatedButton, setActivatedButton] =
     useState<ActivatedButtonsForm>("");
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const dispatchDatasContext = useDatasDispatch();
   const datasContext = useDatasContext();
   const themeContext = useThemeContext();
   const datas = datasContext.datas.find((data) => data.id === params.id);
+
+  function handleOpenModal() {
+    setIsModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
+  function handleClickBtnVoltar() {
+    handleCloseModal();
+    router.back();
+  }
+
+  function handleKeydownBtnVoltar(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (e.key === "Enter" || e.key === "") {
+      handleCloseModal();
+      router.back();
+    }
+  }
+
+  function handleClickBtnCancelar() {
+    handleCloseModal();
+    router.back();
+  }
+
+  function handleKeydownBtnCancelar(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (e.key === "Enter" || e.key === "") {
+      handleCloseModal();
+      router.back();
+    }
+  }
+
+  function handleClickBtnSalvarMudancas() {
+    setActivatedButton("btnSaveChangesEditForm");
+  }
+
+  function handleKeydownBtnSalvarMudancas(
+    e: React.KeyboardEvent<HTMLButtonElement>
+  ) {
+    if (e.key === "Enter" || e.key === "") {
+      setActivatedButton("btnSaveChangesEditForm");
+    }
+  }
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
@@ -57,26 +102,27 @@ export default function ModalEditar({ params }: Props) {
         type: "changed",
         invoice: editedInvoice,
       });
-      return;
+      handleCloseModal();
+      router.back();
     } else {
       alert("Houve um erro, e não podemos alterar está fatura!!");
     }
   };
 
   return (
-    <Modal className={styles.modalCreate}>
+    <Modal
+      className={styles.modalCreate}
+      isOpen={isModalOpen}
+      onClose={handleCloseModal}
+    >
       <header className={styles.modalCreateHeader}>
         <button
           type="button"
           title="Voltar"
           aria-label="Voltar"
           className={styles.modalCreateBtnVoltar}
-          onClick={() => router.back()}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === "") {
-              router.back();
-            }
-          }}
+          onClick={handleClickBtnVoltar}
+          onKeyDown={handleKeydownBtnVoltar}
         >
           <ArrowLeft className={styles.modalCreateIconBtnVoltar} />
           <span>Voltar</span>
@@ -99,12 +145,8 @@ export default function ModalEditar({ params }: Props) {
             type="button"
             aria-label="Cancelar edição"
             title="Cancelar edição"
-            onClick={() => router.back()}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === "") {
-                router.back();
-              }
-            }}
+            onClick={handleClickBtnCancelar}
+            onKeyDown={handleKeydownBtnCancelar}
             className={`btn3 ${styles.containerButtonsBtn}`}
           >
             Cancelar
@@ -114,12 +156,8 @@ export default function ModalEditar({ params }: Props) {
             form="formEdit"
             aria-label="Salvar mudanças"
             title="Salvar mudanças"
-            onClick={() => setActivatedButton("btnSaveChangesEditForm")}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === "") {
-                setActivatedButton("btnSaveChangesEditForm");
-              }
-            }}
+            onClick={handleClickBtnSalvarMudancas}
+            onKeyDown={handleKeydownBtnSalvarMudancas}
             className={`btn1Default ${styles.containerButtonsBtn}`}
           >
             Salvar mudanças
