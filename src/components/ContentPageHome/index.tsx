@@ -138,14 +138,19 @@ function ListInvoices({
 
 function NoContent() {
   return (
-    <div>
+    <div className={styles.containerNoContent}>
       <Image
         src="/assets/illustration-empty.svg"
         alt="Ilustração sem contéudo"
         aria-hidden="true"
+        width={242}
+        height={200}
+        className={styles.imageNoContent}
       />
-      <h2>Não há nada aqui</h2>
-      <p>Crie uma fatura clicando no botão Nova fatura e comece</p>
+      <h2 className={styles.containerNoContentTitle}>Não há nada aqui</h2>
+      <p className={styles.containerNoContentDescription}>
+        Crie uma fatura clicando no botão Nova fatura e comece
+      </p>
     </div>
   );
 }
