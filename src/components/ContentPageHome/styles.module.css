@@ -224,6 +224,75 @@
   text-align: center;
 }
 
-.iconLinkInvoice {
-  display: none;
+@media screen and (min-width: 690px) {
+  .iconLinkInvoice {
+    display: block;
+  }
+
+  .title {
+    letter-spacing: -1.125px;
+  }
+
+  .headerContainer {
+    gap: 40px;
+  }
+
+  .btnNew {
+    padding: 8px 17px 8px 8px;
+    gap: 16px;
+  }
+
+  .header {
+    margin: 0 0 55px 0;
+  }
+
+  .vencimento,
+  .idInvoice,
+  .nameClient,
+  .total,
+  .status {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .idInvoice {
+    margin: 0 28px 0 0;
+  }
+
+  .vencimento {
+    margin: 0 51px 0 0;
+  }
+
+  .nameClient {
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 82px 0 0;
+  }
+
+  .total {
+    width: 80px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 40px 0 0;
+  }
+
+  .status {
+    margin: 0 20px 0 0;
+  }
+
+  .iconLinkInvoice {
+    display: inline-block;
+  }
+
+  .linkCardInvoice {
+    padding: 16px 24px 16px 24px;
+  }
+
+  .listInvoices {
+    max-width: 750px;
+    margin: 0 auto 0 auto;
+  }
 }
