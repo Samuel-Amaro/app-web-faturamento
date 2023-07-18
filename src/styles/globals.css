@@ -96,12 +96,12 @@ h6 {
   color: var(--color07);
 }
 
-.btn4{
+.btn4 {
   background-color: var(--color12);
   color: var(--choose03);
 }
 
-.btn4:is(:hover, :focus){
+.btn4:is(:hover, :focus) {
   background-color: var(--choose19);
 }
 
@@ -149,4 +149,13 @@ body {
   --choose17: var(--color04);
   --choose18: var(--color04);
   --choose19: var(--color03);
+}
+
+@media screen and (min-width: 690px) {
+  .headingL {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 }
