@@ -231,3 +231,126 @@
   font-weight: 700;
   letter-spacing: -0.75px;
 }
+
+@media screen and (min-width: 690px) {
+  .header {
+    padding: 20px 32px 20px 32px;
+    margin: 0 0px 24px 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .headerContainer {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .headerContainerButtons {
+    padding: 0;
+    justify-content: flex-start;
+    box-shadow: none;
+  }
+
+  .btn {
+    text-decoration: none;
+  }
+
+  .section {
+    padding: 33px 32px 32px 32px;
+    overflow-x: auto;
+    margin: 0 0px 0 0px;
+  }
+
+  .sectionId {
+    line-height: 24px;
+    margin: 0 0 7px 0;
+  }
+
+  .sectionContainerHeader {
+    margin: 0 0 21px 0;
+  }
+
+  .sectionContainerBody {
+    justify-content: space-between;
+    gap: 32px 60px;
+    margin: 0 0 47px 0;
+  }
+
+  .containerTable {
+    background-color: var(--choose13);
+    border-radius: 8px;
+    padding: 33px 0 0 0;
+  }
+
+  .containerTableRowgroup {
+    margin: 0 32px 0 32px;
+  }
+
+  .containerTableRowgroup:first-child {
+    margin: 0 32px 32px 32px;
+  }
+
+  .containerTableColumnHeader {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.1px;
+    color: var(--choose12);
+  }
+
+  .containerTableRow {
+    /*width: 568px*/
+    display: grid;
+    grid-template-columns: minmax(min-content, 275px) minmax(min-content, 50px) minmax(min-content, 88px) minmax(min-content, 152px);
+    column-gap: 10px;
+  }
+
+  .containerTableRow:not(:last-child) {
+    margin: 0 0 32px 0;
+  }
+
+  .containerTableCellNome,
+  .containerTableTdNome {
+    text-align: left;
+  }
+
+  .containerTableCellQtd,
+  .containerTableTdQtd {
+    text-align: center;
+  }
+
+  .containerTableCellPreco,
+  .containerTableCellTotal,
+  .containerTableTdTotal,
+  .containerTableTdPreco {
+    text-align: right;
+  }
+
+  .containerTableTd {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+  }
+
+  .containerTableTdNome,
+  .containerTableTdTotal {
+    color: var(--choose02);
+  }
+
+  .containerTableTdQtd,
+  .containerTableTdPreco {
+    color: var(--choose12);
+  }
+
+  .containerTableBody {
+    margin: 0 32px 39px 32px;
+  }
+
+  .tableFooter {
+    padding: 27px 32px 21px 32px;
+  }
+}
