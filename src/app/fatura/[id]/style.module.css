@@ -19,7 +19,26 @@
   color: var(--choose10);
 }
 
-.containerIconLink{
+.containerIconLink {
   display: block;
   stroke: var(--color02);
+}
+
+@media screen and (min-width: 690px) {
+  .container {
+    padding: 49px 40px 135px 40px;
+  }
+
+  .containerLinkVoltar {
+    margin: 0 0 31px 0;
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 810px) {
+  .container {
+    max-width: 730px;
+    padding: 49px 0 135px 0;
+    margin: 0 auto;
+  }
 }
