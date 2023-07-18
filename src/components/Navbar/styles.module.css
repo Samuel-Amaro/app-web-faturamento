@@ -33,3 +33,18 @@
   border-radius: 32px;
   align-self: center;
 }
+
+@media screen and (min-width: 690px) {
+  .containerLogo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .lineDiviser {
+    margin: 0 32px;
+  }
+
+  .container {
+    padding: 0 32px 0 0;
+  }
+}
