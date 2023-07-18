@@ -1,3 +1,9 @@
 .container {
   margin: 32px 24px 105px 24px;
 }
+
+@media screen and (min-width: 690px) {
+  .container {
+    margin: 62px 48px 173px 48px;
+  }
+}
