@@ -290,32 +290,88 @@ function TableItems({ items }: { items: Item[] }) {
   );
 
   const tableDesktop = (
-    <table>
-      <thead>
-        <tr>
-          <th>Nome Item</th>
-          <th>QTD</th>
-          <th>Preço</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div
+      role="table"
+      aria-label="Itens de cobrança da fatura"
+      className={styles.containerTable}
+    >
+      <div role="rowgroup" className={styles.containerTableRowgroup}>
+        <div role="row" className={styles.containerTableRow}>
+          <span
+            role="columnheader"
+            aria-sort="none"
+            className={`${styles.containerTableColumnHeader} ${styles.containerTableCellNome}`}
+          >
+            Nome Item
+          </span>
+          <span
+            role="columnheader"
+            aria-sort="none"
+            className={`${styles.containerTableColumnHeader} ${styles.containerTableCellQtd}`}
+          >
+            QTD
+          </span>
+          <span
+            role="columnheader"
+            aria-sort="none"
+            className={`${styles.containerTableColumnHeader} ${styles.containerTableCellPreco}`}
+          >
+            Preço
+          </span>
+          <span
+            role="columnheader"
+            aria-sort="none"
+            className={`${styles.containerTableColumnHeader} ${styles.containerTableCellTotal}`}
+          >
+            Total
+          </span>
+        </div>
+      </div>
+      <div role="rowgroup" className={`${styles.containerTableRowgroup} ${styles.containerTableBody}`}>
         {items.map((item, index) => (
-          <tr key={index}>
-            <td>{item.nome}</td>
-            <td>{item.quantidade}</td>
-            <td>{formatNumber(item.preco)}</td>
-            <td>{formatNumber(item.total)}</td>
-          </tr>
+          <div role="row" key={index} className={styles.containerTableRow}>
+            <span
+              role="cell"
+              className={`${styles.containerTableTd} ${styles.containerTableTdNome}`}
+            >
+              {item.nome}
+            </span>
+            <span
+              role="cell"
+              className={`${styles.containerTableTd} ${styles.containerTableTdQtd}`}
+            >
+              {item.quantidade}
+            </span>
+            <span
+              role="cell"
+              className={`${styles.containerTableTd} ${styles.containerTableTdPreco}`}
+            >
+              {formatNumber(item.preco)}
+            </span>
+            <span
+              role="cell"
+              className={`${styles.containerTableTd} ${styles.containerTableTdTotal}`}
+            >
+              {formatNumber(item.total)}
+            </span>
+          </div>
         ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan={3}>Total geral</td>
-          <td>{formatNumber(items.reduce((a, c) => a + c.total, 0))}</td>
-        </tr>
-      </tfoot>
-    </table>
+      </div>
+      <div className={styles.tableFooter} role="rowgroup">
+        <p role="row" className={styles.tableContainerFooter}>
+          <span
+            role="cell"
+            aria-colspan={3}
+            className={styles.tableTotalGeralCell}
+          >
+            Total geral
+          </span>
+          <span role="cell" className={styles.tableTotalValue}>
+            {formatNumber(items.reduce((a, c) => a + c.total, 0))}
+          </span>
+        </p>
+      </div>
+    </div>
   );
 
   return useMatchMedia({
