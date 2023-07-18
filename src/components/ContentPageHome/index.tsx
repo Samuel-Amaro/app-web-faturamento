@@ -58,6 +58,12 @@ export default function ContentPageHome() {
     mediaQuery: "(min-width: 690px)",
   });
 
+  const txtButtonNewInvoice = useMatchMedia({
+    mobileContent: <span className={styles.btnNewText}>Nova</span>,
+    desktopContent: <span className={styles.btnNewText}>Nova Fatura</span>,
+    mediaQuery: "(min-width: 690px)",
+  });
+
   return (
     <>
       <header className={styles.header}>
@@ -74,7 +80,7 @@ export default function ContentPageHome() {
             className={`btn1Default ${styles.btnNew}`}
           >
             <Plus className={styles.iconBtnNew} />
-            <span className={styles.btnNewText}>Nova</span>
+            {txtButtonNewInvoice}
           </Link>
         </div>
       </header>
@@ -104,38 +110,77 @@ function ListInvoices({
             filters.find((invoiceFind) => invoiceFind === invoiceFilter.status)
         )
       : invoices;
+
+  const cardLink = useMatchMedia({
+    mobileContent: null,
+    desktopContent: null,
+    mediaQuery: "(min-width: 690px)",
+  });
+
   return (
     <ul className={styles.listInvoices}>
       {invoicesFiltered.map((invoice) => (
         <li key={invoice.id} className={styles.item}>
-          <Link
-            href={`/fatura/${invoice.id}`}
-            title={`Visualizar a fatura ${invoice.id}`}
-            aria-label={`Visualizar a fatura ${invoice.id}`}
-            className={styles.linkCardInvoice}
-          >
-            <div className={styles.containerA}>
-              <p className={styles.idInvoice}>
-                <span className={styles.hashId}>#</span>
-                {invoice.id}
-              </p>
-              <p className={styles.nameClient}>{invoice.nomeCliente}</p>
-            </div>
-            <div className={styles.containerB}>
-              <div>
-                <p className={styles.vencimento}>
-                  Até {formatDate(invoice.vencimento)}
-                </p>
-                <p className={styles.total}>{formatNumber(invoice.total)}</p>
-              </div>
-              <Status status={invoice.status} />
-            </div>
-            <ArrowRight className={styles.iconLinkInvoice} />
-          </Link>
+          <LinkCardInvoice invoice={invoice} />
         </li>
       ))}
     </ul>
   );
+}
+
+function LinkCardInvoice({ invoice }: { invoice: Fatura }) {
+  const content = useMatchMedia({
+    mobileContent: (
+      <Link
+        href={`/fatura/${invoice.id}`}
+        title={`Visualizar a fatura ${invoice.id}`}
+        aria-label={`Visualizar a fatura ${invoice.id}`}
+        className={styles.linkCardInvoice}
+      >
+        <div className={styles.containerA}>
+          <p className={styles.idInvoice}>
+            <span className={styles.hashId}>#</span>
+            {invoice.id}
+          </p>
+          <p className={styles.nameClient}>{invoice.nomeCliente}</p>
+        </div>
+        <div className={styles.containerB}>
+          <div>
+            <p className={styles.vencimento}>
+              Até {formatDate(invoice.vencimento)}
+            </p>
+            <p className={styles.total}>{formatNumber(invoice.total)}</p>
+          </div>
+          <Status status={invoice.status} />
+        </div>
+      </Link>
+    ),
+    desktopContent: (
+      <Link
+        href={`/fatura/${invoice.id}`}
+        title={`Visualizar a fatura ${invoice.id}`}
+        aria-label={`Visualizar a fatura ${invoice.id}`}
+        className={styles.linkCardInvoice}
+      >
+        <p className={styles.idInvoice}>
+          <span className={styles.hashId}>#</span>
+          {invoice.id}
+        </p>
+        <p className={styles.vencimento}>
+          Até {formatDate(invoice.vencimento)}
+        </p>
+        <p className={styles.nameClient}>{invoice.nomeCliente}</p>
+        <p className={styles.total}>{formatNumber(invoice.total)}</p>
+        <div className={styles.status}>
+          <Status status={invoice.status} />
+        </div>
+
+        <ArrowRight className={styles.iconLinkInvoice} />
+      </Link>
+    ),
+    mediaQuery: "(min-width: 690px)",
+  });
+  return content;
 }
 
 function NoContent() {
