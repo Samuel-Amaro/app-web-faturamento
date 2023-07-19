@@ -79,4 +79,28 @@
   cursor: pointer;
   padding: 18px 19px 15px 18px;
   border-radius: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+
+@media screen and (min-width: 690px) {
+  .modalCreate {
+    padding: 59px 0 0 0;
+  }
+
+  .modalCreateHeader {
+    margin: 0 56px 46px 56px;
+  }
+
+  .form {
+    margin: 0 56px 0 56px;
+  }
+
+  .containerButtonsSub {
+    padding: 31px 56px 31px 56px;
+    justify-content: flex-end;
+    gap: 8px;
+  }
 }
