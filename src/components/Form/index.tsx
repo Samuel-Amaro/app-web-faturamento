@@ -68,7 +68,7 @@ export default function Form({
     register,
     handleSubmit,
     control,
-    formState: { errors, isSubmitSuccessful},
+    formState: { errors, isSubmitSuccessful },
     setValue,
     getValues,
     reset,
@@ -81,11 +81,7 @@ export default function Form({
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      id={idForm}
-      className={className}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} id={idForm} className={className}>
       <FormGroupBillFrom
         errors={errors}
         activatedButton={activatedButton}
@@ -987,7 +983,7 @@ function FormGroupList({
   const contentDesktop =
     fields.length > 0 ? (
       <div className={styles.formContainerItemList}>
-        <div>
+        <div className={styles.formContainerLabels}>
           <label
             htmlFor={"nameItem"}
             id="nameItem"
@@ -1016,7 +1012,7 @@ function FormGroupList({
         {fields.length > 0 && (
           <div>
             {fields.map((field, index) => (
-              <div key={field.id}>
+              <div key={field.id} className={styles.formContainerRowGroup}>
                 <input
                   type="text"
                   title="Nome Do Item"
@@ -1055,8 +1051,8 @@ function FormGroupList({
                   }
                   className={
                     errors.itemList?.[index]?.quantidade
-                      ? `${styles.formInput} ${styles.formInputError}`
-                      : styles.formInput
+                      ? `${styles.formInput} ${styles.formInputNumber} ${styles.formInputError}`
+                      : `${styles.formInput} ${styles.formInputNumber}`
                   }
                   {...register(`itemList.${index}.quantidade`, {
                     required: {
@@ -1093,8 +1089,8 @@ function FormGroupList({
                   }
                   className={
                     errors.itemList?.[index]?.preco
-                      ? `${styles.formInput} ${styles.formInputError}`
-                      : styles.formInput
+                      ? `${styles.formInput} ${styles.formInputNumber} ${styles.formInputError}`
+                      : `${styles.formInput} ${styles.formInputNumber}`
                   }
                   {...register(`itemList.${index}.preco`, {
                     required: {
