@@ -11,6 +11,7 @@ import Modal from "../Modal";
 import ArrowLeft from "../Icons/ArrowLeft";
 import Form from "../Form";
 import styles from "./styles.module.css";
+import useMatchMedia from "@/hooks/useMatchMedia";
 
 export default function ModalCreate() {
   const router = useRouter();
@@ -130,17 +131,23 @@ export default function ModalCreate() {
       className={styles.modalCreate}
     >
       <header className={styles.modalCreateHeader}>
-        <button
-          type="button"
-          title="Voltar"
-          aria-label="Voltar"
-          className={styles.modalCreateBtnVoltar}
-          onClick={handleClickBtnVoltar}
-          onKeyDown={handleKeydownBtnVoltar}
-        >
-          <ArrowLeft className={styles.modalCreateIconBtnVoltar} />
-          <span>Voltar</span>
-        </button>
+        {useMatchMedia({
+          mobileContent: (
+            <button
+              type="button"
+              title="Voltar"
+              aria-label="Voltar"
+              className={styles.modalCreateBtnVoltar}
+              onClick={handleClickBtnVoltar}
+              onKeyDown={handleKeydownBtnVoltar}
+            >
+              <ArrowLeft className={styles.modalCreateIconBtnVoltar} />
+              <span>Voltar</span>
+            </button>
+          ),
+          desktopContent: null,
+          mediaQuery: "(min-width: 690px)",
+        })}
         <h1 className={styles.title}>Nova Fatura</h1>
       </header>
       <Form
