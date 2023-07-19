@@ -56,3 +56,18 @@
   border-radius: 24px;
   cursor: pointer;
 }
+
+@media screen and (min-width: 690px) {
+  .modalExcluir {
+    max-width: 480px;
+    padding: 51px 48px 48px 48px;
+  }
+
+  .title {
+    margin: 0 0 12px 0;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
