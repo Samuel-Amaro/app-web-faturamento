@@ -214,3 +214,66 @@
   letter-spacing: -0.208px;
   color: var(--color09);
 }
+
+@media screen and (min-width: 690px) {
+  .formGroupContainer {
+    gap: 24px;
+  }
+
+  .formGroupContainerA,
+  .formGroupContainerB,
+  .formGroupContainerC {
+    flex: 0 0 152px;
+  }
+
+  .formFieldset:nth-of-type(1),
+  .formFieldset:nth-of-type(2) {
+    margin: 0 0 49px 0;
+  }
+
+  .formFieldset:nth-of-type(3) {
+    margin: 0 0 27px 0;
+  }
+
+  .formFieldset:nth-of-type(4) {
+    margin: 0;
+  }
+
+  .formGroupContainer2 {
+    gap: 24px;
+  }
+
+  .formGroupContainer2A,
+  .formGroupContainer2B {
+    flex: 0 0 240px;
+  }
+
+  .formSubtitleVariant {
+    margin: 0 0 14px 0;
+  }
+
+  .formContainerLabels {
+    display: grid;
+    grid-template-columns: minmax(min-content, 214px) minmax(min-content, 56px) minmax(min-content, 56px) minmax(min-content, 100px);
+    gap: 16px;
+    margin: 0 0 15px 0;
+  }
+
+  .formContainerRowGroup {
+    display: grid;
+    grid-template-columns: minmax(min-content, 214px) minmax(min-content, 56px) minmax(min-content, 56px) minmax(min-content, 100px) minmax(min-content, 13px);
+    gap: 16px;
+  }
+
+  .formContainerRowGroup:not(:last-child) {
+    margin: 0 0 18px 0;
+  }
+
+  .formInputNumber {
+    padding: 15.5px 0 12.5px 2px;
+  }
+
+  .formContainerItemList{
+    margin: 0 0 18px 0;
+  }
+}
