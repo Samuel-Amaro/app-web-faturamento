@@ -36,7 +36,9 @@ export default function RootLayout(props: {
         <ThemeContextProvider>
           <DataContextProvider>
             <div className="container">
-              <Navbar />
+              <div>
+                <Navbar />
+              </div>
               {props.children}
             </div>
             {props.modal}
