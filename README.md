@@ -1,80 +1,105 @@
-# Frontend Mentor - Invoice app solution
+# Aplicativo Web de fatura
 
-This is a solution to the [Invoice app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+## Índice
 
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+- [Visão geral](#visão geral)
+  - [O desafio](#o-desafio)
+  - [Captura de tela](#captura de tela)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Meu processo](#meu-processo)
+  - [Construído com](#construído com)
+- [Autor](#autor)
 
-## Overview
+## Visão geral
 
-### The challenge
+### O desafio
 
-Users should be able to:
+Os usuários devem ser capazes de:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Create, read, update, and delete invoices
-- Receive form validations when trying to create/edit an invoice
-- Save draft invoices, and mark pending invoices as paid
-- Filter invoices by status (draft/pending/paid)
-- Toggle light and dark mode
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- [x] Veja o layout ideal para o aplicativo, dependendo do tamanho da tela do dispositivo
+- [x] Veja os estados de foco para todos os elementos interativos na página
+- [x] Criar, ler, atualizar e excluir faturas
+- [x] Receber validações de formulário ao tentar criar/editar uma fatura
+- [x] Salve rascunhos de faturas e marque as faturas pendentes como pagas
+- [x] Filtrar faturas por status (rascunho/pendente/pago)
+- [x] Alterna entre modo claro e escuro
+- **Bônus**: Acompanhe todas as alterações, mesmo depois de atualizar o navegador (`localStorage` pode ser usado para isso se você não estiver criando um aplicativo full-stack)
 
-### Screenshot
+### Comportamento esperado
 
-![](./screenshot.jpg)
+- [x] Criação de fatura
+  - [x] Ao criar uma nova fatura, é necessário criar um ID. Cada ID deve ter 2 letras maiúsculas aleatórias seguidas por 4 números aleatórios.
+  - [x] As faturas podem ser criadas como rascunhos ou pendentes. Clicar em "Salvar como rascunho" deve permitir que o usuário deixe qualquer campo de formulário em branco, mas deve criar um ID se não existir e definir o status como "rascunho". Clicar em "Salvar e enviar" deve exigir que todos os campos do formulário sejam preenchidos e deve definir o status como "pendente".
+  - [x] Alterar o campo Termos de Pagamento deve definir a propriedade `termosPagamento` com base na data `criadoEm` mais os números de dias definidos para os termos de pagamento.
+  - [x] O `total` deve ser a soma de todos os itens da nota fiscal.
+- [x] Editar uma fatura
+  - [x] Ao salvar alterações em uma fatura, todos os campos são obrigatórios ao clicar no botão "Salvar alterações". Se o usuário clicar em "Cancelar", todas as alterações não salvas devem ser redefinidas.
+  - [x] Se a fatura que está sendo editada for "rascunho", o status precisa ser atualizado para "pendente" ao clicar no botão "Salvar alterações". Todos os campos são obrigatórios nesta fase.
+- [x] Os usuários devem poder marcar as faturas como pagas clicando no botão "Marcar como pagas". Isso deve alterar o status da fatura para "pago".
+- [x] Os usuários devem receber um modal de confirmação ao tentar excluir as faturas.
+- [x] Sinta-se à vontade para não adicionar estilo personalizado para os campos de formulário de data e dropdown. Os designs para esses campos são extras opcionais e são principalmente para fins de ilustração.
+
+### Captura de tela
+
+![](./public/assets/result-page-home.png)
+
+![](./public/assets/result-page-invoice.png)
+
+![](./public/assets/result-modal-create.png)
+
+![](./public/assets/result-modal-edit.png)
+
+![](./public/assets/result-modal-delete.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Repositório do Projeto: [Adicionar URL da solução aqui](https://your-solution-url.com)
+- Resultado ao vivo: [Adicione URL do site ao vivo aqui](https://your-live-site-url.com)
 
-## My process
+## Meu processo
 
-### Built with
+### Construído com
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
+- Marcação HTML5 semântica
+- Acessibilidade HTML com arias atributos e roles
+- CSS(Flexbox, Grid, Bem Metodologia, Mobile-First, Responsive Web Design, Normalize)
+- Typescript
+- NPM
+- [React](https://reactjs.org/) - Biblioteca JS
+- hooks(useState, useEffect, useReducer, custom hooks)
+- Gerenciamento Estado - Context API com reducers
+- [React-Hook-Form](https://www.react-hook-form.com/) - Hook Gerenciamento Form
+- [Next.js](https://nextjs.org/) - Next App Router
+- Client Components
+- Metadatas Static, and dinamic
+- Loading UI
+- Route Handles
+- Page Error Handling
+- Parallel Routes
+- [CSS Modules](https://github.com/css-modules/css-modules) - Para estilos
+- [LocalStorage Web API Browser](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) - Armazenar Dados
 
-## Author
+## Autor
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Portfólio Web](https://samuel-amaro.github.io/portfolio-web/)
+- Frontend Mentor - [@samuel-amaro](https://www.frontendmentor.io/profile/Samuel-Amaro)
 
-## Getting Started
+## Começando
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages /criar-próximo-aplicativo).
 
-First, run the development server:
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# ou
+desenvolvedor de fios
+# ou
+desenvolvedor pnpm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando `app/page.tsx`. A página é atualizada automaticamente conforme você edita o arquivo.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
+Este projeto usa [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) para otimizar e carregar automaticamente Inter, uma fonte personalizada do Google.
