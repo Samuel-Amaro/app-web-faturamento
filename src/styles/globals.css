@@ -159,3 +159,11 @@ body {
     line-height: normal;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(auto, 103px) minmax(min-content, 1fr);
+  }
+}
