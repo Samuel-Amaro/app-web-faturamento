@@ -2,12 +2,12 @@
 
 ## Índice
 
-- [Visão geral](#visão geral)
+- [Visão Geral](#visão-geral)
   - [O desafio](#o-desafio)
-  - [Captura de tela](#captura de tela)
+  - [Captura de tela](#captura-de-tela)
   - [Links](#links)
 - [Meu processo](#meu-processo)
-  - [Construído com](#construído com)
+  - [Construído com](#construído-com)
 - [Autor](#autor)
 
 ## Visão geral
@@ -53,7 +53,7 @@ Os usuários devem ser capazes de:
 
 ### Links
 
-- Repositório do Projeto: [Adicionar URL da solução aqui](https://your-solution-url.com)
+- Repositório do Projeto: [Repositório do Projeto](https://github.com/Samuel-Amaro/app-web-faturamento)
 - Resultado ao vivo: [Adicione URL do site ao vivo aqui](https://your-live-site-url.com)
 
 ## Meu processo
@@ -66,16 +66,16 @@ Os usuários devem ser capazes de:
 - Typescript
 - NPM
 - [React](https://reactjs.org/) - Biblioteca JS
-- hooks(useState, useEffect, useReducer, custom hooks)
-- Gerenciamento Estado - Context API com reducers
-- [React-Hook-Form](https://www.react-hook-form.com/) - Hook Gerenciamento Form
+  - hooks(useState, useEffect, useReducer, custom hooks)
+  - Gerenciamento Estado - Context API com reducers
+  - [React-Hook-Form](https://www.react-hook-form.com/) - Hook Gerenciamento Form
 - [Next.js](https://nextjs.org/) - Next App Router
-- Client Components
-- Metadatas Static, and dinamic
-- Loading UI
-- Route Handles
-- Page Error Handling
-- Parallel Routes
+  - Client Components
+  - Metadatas Static, and dinamic
+  - Loading UI
+  - Route Handles
+  - Page Error Handling
+  - Parallel Routes
 - [CSS Modules](https://github.com/css-modules/css-modules) - Para estilos
 - [LocalStorage Web API Browser](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) - Armazenar Dados
 
