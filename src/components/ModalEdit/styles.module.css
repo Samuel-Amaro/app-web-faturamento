@@ -1,8 +1,14 @@
-.modalCreate {
+.modalEdit {
   padding: 33px 0 0 0;
+  border: none;
+  min-height: calc(100vh - 72px);
+  max-width: 635px;
+  top: 72px;
+  border-radius: 0px 20px 20px 0px;
+  height: auto;
 }
 
-.modalCreateBtnVoltar {
+.modalEditBtnVoltar {
   box-sizing: border-box;
   font-family: inherit;
   appearance: none;
@@ -21,11 +27,11 @@
   cursor: pointer;
 }
 
-.modalCreateBtnVoltar:is(:hover, :focus) {
+.modalEditBtnVoltar:is(:hover, :focus) {
   color: var(--choose10);
 }
 
-.modalCreateIconBtnVoltar {
+.modalEditIconBtnVoltar {
   display: block;
   stroke: var(--color02);
 }
@@ -86,11 +92,18 @@
 }
 
 @media screen and (min-width: 690px) {
-  .modalCreate {
+  .modalEdit {
+    min-height: calc(100vh - 80px);
+    top: 80px;
     padding: 59px 0 0 0;
   }
 
-  .modalCreateHeader {
+  .modalEdit::backdrop {
+    min-height: calc(100vh - 80px);
+    top: 80px;
+  }
+
+  .modalEditHeader {
     margin: 0 56px 46px 56px;
   }
 
@@ -108,5 +121,17 @@
 @media screen and (min-width: 900px) {
   .containerButtons {
     background-color: var(--choose20);
+  }
+
+  .modalEdit {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
+  }
+
+  .modalEdit::backdrop {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
   }
 }
