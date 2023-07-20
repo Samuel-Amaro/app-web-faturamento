@@ -169,3 +169,36 @@ body {
     grid-template-columns: minmax(auto, 103px) minmax(min-content, 1fr);
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="dark"] {
+    background-color: var(--color11);
+    --choose01: var(--color03);
+    --choose02: white;
+    --choose03: var(--color05);
+    --choose04: var(--color04);
+    --color-shadow: rgba(0, 0, 0, 0.25);
+    --choose05: var(--color03);
+    --choose06: var(--color03);
+    --choose07: white;
+    --choose08: var(--color20);
+    --choose09: var(--color05);
+    --choose10: var(--color06);
+    --choose11: var(--color05);
+    --choose12: var(--color05);
+    --choose13: var(--color04);
+    --choose14: var(--color08);
+    --choose15: white;
+    --choose16: var(--color11);
+    --choose17: var(--color04);
+    --choose18: var(--color04);
+    --choose19: var(--color03);
+    --choose20: var(--color11);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
