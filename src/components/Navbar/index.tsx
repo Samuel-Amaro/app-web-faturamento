@@ -3,15 +3,14 @@ import Logo from "../Icons/Logo";
 import Switch from "../Switch";
 import styles from "./styles.module.css";
 
+//TODO: FOCAR STYLES DESKTOP AQUI
+
 export default function Navbar() {
   return (
     <aside className={styles.container}>
       <Logo className={styles.containerLogo} />
-      {/*<div className={styles.containerWrapperLogo}>
-        <Logo />
-  </div>*/}
       <div className={styles.containerControls}>
-        <Switch className={styles.switch}/>
+        <Switch className={styles.switch} />
         <hr className={styles.lineDiviser} />
         <Image
           src="/assets/image-avatar.jpg"
