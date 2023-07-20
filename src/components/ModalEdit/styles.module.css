@@ -104,3 +104,9 @@
     gap: 8px;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .containerButtons {
+    background-color: var(--choose20);
+  }
+}
