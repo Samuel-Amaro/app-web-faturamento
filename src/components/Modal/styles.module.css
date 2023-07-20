@@ -27,3 +27,17 @@
     top: 80px;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .dialog {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
+  }
+
+  .dialog::backdrop {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
+  }
+}
