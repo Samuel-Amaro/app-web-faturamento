@@ -45,6 +45,7 @@
   --choose17: var(--color05);
   --choose18: var(--color02);
   --choose19: var(--color08);
+  --choose20: white;
 }
 
 * {
@@ -149,6 +150,7 @@ body {
   --choose17: var(--color04);
   --choose18: var(--color04);
   --choose19: var(--color03);
+  --choose20: var(--color11);
 }
 
 @media screen and (min-width: 690px) {
