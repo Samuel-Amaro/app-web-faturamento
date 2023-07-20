@@ -48,3 +48,34 @@
     padding: 0 32px 0 0;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .container {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    flex-flow: column nowrap;
+    padding: 0;
+    border-radius: 0px 28px 28px 0px;
+  }
+
+  .containerControls {
+    flex-flow: column nowrap;
+    margin: 0 0 24px 0;
+  }
+
+  .containerLogo {
+    display: block;
+    width: 103px;
+    height: 103px;
+  }
+
+  .lineDiviser {
+    margin: 24px 0 24px 0;
+  }
+
+  .profile {
+    width: 40px;
+    height: 40px;
+  }
+}
