@@ -42,3 +42,9 @@
     margin: 0 auto;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .container {
+    padding: 65px 0 54px 0;
+  }
+}
