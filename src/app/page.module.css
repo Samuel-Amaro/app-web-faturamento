@@ -12,5 +12,6 @@
   .container{
     margin: 78px auto 173px auto;
     max-width: 760px;
+    width: 100%;
   }
 }
