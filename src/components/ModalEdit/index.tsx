@@ -12,8 +12,6 @@ import ArrowLeft from "../Icons/ArrowLeft";
 import Form from "../Form";
 import useMatchMedia from "@/hooks/useMatchMedia";
 
-//TODO: versionar alterações e arrumar o modalDelete que tem uma class modal a frente que esta estragando layout do modal delete
-
 type Props = {
   id: string;
 };
@@ -114,22 +112,22 @@ export default function ModalEdit({ id }: Props) {
 
   return (
     <Modal
-      className={styles.modalCreate}
+      className={styles.modalEdit}
       isOpen={isModalOpen}
       onClose={handleCloseModal}
     >
-      <header className={styles.modalCreateHeader}>
+      <header className={styles.modalEditHeader}>
         {useMatchMedia({
           mobileContent: (
             <button
               type="button"
               title="Voltar"
               aria-label="Voltar"
-              className={styles.modalCreateBtnVoltar}
+              className={styles.modalEditBtnVoltar}
               onClick={handleClickBtnVoltar}
               onKeyDown={handleKeydownBtnVoltar}
             >
-              <ArrowLeft className={styles.modalCreateIconBtnVoltar} />
+              <ArrowLeft className={styles.modalEditIconBtnVoltar} />
               <span>Voltar</span>
             </button>
           ),
