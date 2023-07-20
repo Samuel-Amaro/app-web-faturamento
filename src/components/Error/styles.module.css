@@ -1,0 +1,40 @@
+.containerNoContent {
+  max-width: 240px;
+  margin: 70px auto 0 auto;
+}
+
+.imageNoContent {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 42px 0;
+}
+
+.containerNoContentTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.75px;
+  color: var(--choose02);
+  text-align: center;
+  margin: 0 0 23px 0;
+}
+
+.containerNoContentDescription {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.1px;
+  color: var(--choose03);
+  text-align: center;
+}
+
+.btn{
+  appearance: none;
+  display: block;
+  font-family: inherit;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
