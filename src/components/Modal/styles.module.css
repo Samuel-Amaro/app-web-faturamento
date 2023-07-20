@@ -1,43 +1,8 @@
 .dialog {
-  border: none;
-  min-height: calc(100vh - 72px);
-  max-width: 635px;
-  top: 72px;
   background-color: var(--choose16);
-  border-radius: 0px 20px 20px 0px;
-  height: auto;
 }
 
 .dialog::backdrop {
   background-color: #000;
   opacity: 0.49;
-  min-height: calc(100vh - 72px);
-  top: 72px;
-  height: auto;
-}
-
-@media screen and (min-width: 690px) {
-  .dialog {
-    min-height: calc(100vh - 80px);
-    top: 80px;
-  }
-
-  .dialog::backdrop {
-    min-height: calc(100vh - 80px);
-    top: 80px;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .dialog {
-    min-height: 100vh;
-    top: 0;
-    left: 103px;
-  }
-
-  .dialog::backdrop {
-    min-height: 100vh;
-    top: 0;
-    left: 103px;
-  }
 }
