@@ -21,6 +21,14 @@ export default function ContentPageHome() {
     { value: "pendente", label: "Pendente" },
     { value: "rascunho", label: "Rascunho" },
   ];
+  const invoicesFiltered =
+    filters.length > 0
+      ? datasContext.datas.filter(
+          (invoiceFilter) =>
+            invoiceFilter.status ===
+            filters.find((invoiceFind) => invoiceFind === invoiceFilter.status)
+        )
+      : datasContext.datas;
 
   function onChange(value: string, typeAction: "add" | "delete") {
     if (typeAction === "add") {
@@ -37,8 +45,8 @@ export default function ContentPageHome() {
       <TextHeader
         textTitle="Faturas"
         textDescriptors={
-          datasContext.datas.length > 0
-            ? `${datasContext.datas.length} faturas`
+          invoicesFiltered.length > 0
+            ? `${invoicesFiltered.length} faturas`
             : `Sem faturas`
         }
       />
@@ -47,8 +55,8 @@ export default function ContentPageHome() {
       <TextHeader
         textTitle="Faturas"
         textDescriptors={
-          datasContext.datas.length > 0
-            ? `Existem ${datasContext.datas.length} faturas ${
+          invoicesFiltered.length > 0
+            ? `Existem ${invoicesFiltered.length} faturas ${
                 filters.length > 0 ? filters.join(", ") : "totais"
               }`
             : `Sem faturas`
