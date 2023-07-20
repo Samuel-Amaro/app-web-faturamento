@@ -1,5 +1,17 @@
 .modalCreate {
   padding: 33px 0 0 0;
+  border: none;
+  min-height: calc(100vh - 72px);
+  max-width: 635px;
+  top: 72px;
+  border-radius: 0px 20px 20px 0px;
+  height: auto;
+}
+
+.modalCreate::backdrop {
+  min-height: calc(100vh - 72px);
+  top: 72px;
+  height: auto;
 }
 
 .modalCreateBtnVoltar {
@@ -87,7 +99,14 @@
 
 @media screen and (min-width: 690px) {
   .modalCreate {
+    min-height: calc(100vh - 80px);
+    top: 80px;
     padding: 59px 0 0 0;
+  }
+
+  .modalCreate::backdrop {
+    min-height: calc(100vh - 80px);
+    top: 80px;
   }
 
   .modalCreateHeader {
@@ -107,5 +126,17 @@
 @media screen and (min-width: 900px) {
   .containerButtons {
     background-color: var(--choose20);
+  }
+
+  .modalCreate {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
+  }
+
+  .modalCreate::backdrop {
+    min-height: 100vh;
+    top: 0;
+    left: 103px;
   }
 }
