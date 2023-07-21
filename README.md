@@ -54,7 +54,7 @@ Os usuários devem ser capazes de:
 ### Links
 
 - Repositório do Projeto: [Repositório do Projeto](https://github.com/Samuel-Amaro/app-web-faturamento)
-- Resultado ao vivo: [Adicione URL do site ao vivo aqui](https://app-web-faturamento.vercel.app/)
+- Resultado ao vivo: [URL ao vivo](https://app-web-faturamento.vercel.app/)
 
 ## Meu processo
 
